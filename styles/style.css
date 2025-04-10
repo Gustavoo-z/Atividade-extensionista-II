@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    background-color: #111;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+  
+  .subtitulo {
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    width: 280px;
+    height: 60px;
+    border-radius: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .card:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .card a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .tooltip {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    width: 200px;
+    z-index: 10;
+  }
+  
+  .card:hover .tooltip {
+    display: block;
+  }
+
+  .autor-text {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .autor-github {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .autor-github::after {
+    color: #ccc;
+  }
+  
+  @media (max-width: 500px) {
+    .tooltip {
+      position: static;
+      transform: none;
+      display: block;
+      margin-top: 10px;
+    }
+  }
+  
