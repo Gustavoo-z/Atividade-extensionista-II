@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Constância Vale Ouro</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>    
+  <section class="container">
+    <div class="navigation">
+        <a href="preco-cafezinho.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
+        <a href="../index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
+        <a href="caminho-sonho.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
+      </div>  
+      <h1>A Constância Vale Ouro</h1>
+      <p>Simule quanto seu dinheiro pode render aplicando mensalmente com uma taxa de rendimento constante.</p>
+  
+      <form id="form-investimento">
+        <label for="aporte">Investimento mensal (R$):</label>
+        <input id="aporte" required>
+  
+        <label for="duracao">Duração (em meses):</label>
+        <input id="duracao" required>
+  
+        <label for="taxa">Taxa de rendimento mensal (%):</label>
+        <input id="taxa" value="0.8" step="0.01" required>
+  
+        <button id="btn-simular" class="btn-simular" type="submit">Simular</button>
+      </form>
+  
+      <div id="graficoContainer" style="display: none;">
+        <canvas id="graficoConstancia"></canvas>
+      </div>      
+  
+      <div id="resultado"></div>
+  </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../script.js"></script>
+</body>
+</html>

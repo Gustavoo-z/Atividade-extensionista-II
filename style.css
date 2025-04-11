@@ -1,3 +1,10 @@
+@import url('styles/caminho-sonho.css');
+@import url('styles/constancia.css');
+@import url('styles/paciencia.css');
+@import url('styles/pequenos-gastos.css');
+@import url('styles/peso-juros.css');
+@import url('styles/preco-cafezinho.css');
+
 body {
     margin: 0;
     background-color: #111;
@@ -58,7 +65,8 @@ body {
   }
   
   .tooltip {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     bottom: 60px;
     left: 50%;
@@ -70,10 +78,15 @@ body {
     font-size: 0.9em;
     width: 200px;
     z-index: 10;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition-delay: 0.2s;
   }
   
   .card:hover .tooltip {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.2s;
   }
 
   .autor-text {
@@ -90,14 +103,60 @@ body {
 
   .autor-github::after {
     color: #ccc;
+    text-decoration: none;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
   
-  @media (max-width: 500px) {
-    .tooltip {
-      position: static;
-      transform: none;
-      display: block;
-      margin-top: 10px;
-    }
+  .nav-arrow img {
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s;
+  }
+
+  .nav-arrow {
+    font-size: 2rem;
+    background-color: #444;
+    color: white;
+    border-radius: 50%;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .nav-arrow:hover {
+    background-color: #666;
+    transform: scale(1.05);
+  }
+  
+  .home-icon {
+    font-size: 1.8rem;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #444;
+    color: white;
+    transition: background 0.3s;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .home-icon img {
+    width: 80%;
+    height: 25px;
+    transition: transform 0.3s;
+  }
+  
+  .home-icon:hover {
+    background-color: #666;
+    transform: scale(1.05);
   }
   
