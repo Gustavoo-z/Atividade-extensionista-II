@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form-investimento");
+    if (!form) return;
     const resultado = document.getElementById("resultado");
     const graficoContainer = document.getElementById("graficoContainer");
     const canvas = document.getElementById("graficoConstancia");

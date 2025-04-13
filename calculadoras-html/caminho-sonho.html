@@ -16,16 +16,20 @@
     <h1>Caminho até o Sonho</h1>
     <p>Descubra quanto você precisa guardar por mês para alcançar seu objetivo financeiro em um prazo determinado.</p>
     <form id="form-meta">
-      <label for="meta">Meta (R$):</label>
-      <input type="number" id="meta" min="1" required>
-  
-      <label for="prazo">Prazo (em meses):</label>
-      <input type="number" id="prazo" min="1" required>
-  
-      <button type="submit" class="btn-simular">Calcular</button>
+      <label for="meta">Meta a alcançar (R$):</label>
+      <input type="number" id="meta" required>
+    
+      <label for="meses">Em quantos meses deseja alcançar:</label>
+      <input type="number" id="meses" required>
+    
+      <label for="taxa-meta">Taxa de rendimento mensal (%):</label>
+      <input type="number" id="taxa-meta" value="0.8" step="0.01">
+    
+      <button class="btn-simular">Calcular</button>
     </form>
-  
-    <div id="resultadoMeta" class="resultado"></div>
+    <section class="resultado-caminho">
+      <div style="display: none;" id="resultado-meta"></div>
+    </section>
     <script type="module" src="../script.js"></script>
   </section>
 </body>
