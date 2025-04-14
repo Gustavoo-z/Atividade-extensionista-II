@@ -1,0 +1,93 @@
+.container-calculadoras {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--cor-secundaria);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
+  
+  .titulo-calculadoras {
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+  
+  .subtitulo-calculadoras {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 30px;
+  }
+  
+  .botoes-calculadoras{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  
+  .card-calculadoras {
+    position: relative;
+    background-color: var(--cor-texto);
+    color: var(--cor-card);
+    width: 280px;
+    height: 60px;
+    border-radius: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .card-calculadoras:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .card-calculadoras a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .tooltip-calculadoras {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: var(--cor-texto);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    width: 200px;
+    z-index: 10;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition-delay: 0.2s;
+  }
+  
+  .card-calculadoras:hover .tooltip-calculadoras {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.2s;
+  }
+
+  .autor-texto-calculadoras {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .autor-github {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .autor-github::after {
+    color: #ccc;
+    text-decoration: none;
+  }

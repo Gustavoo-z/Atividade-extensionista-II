@@ -2,20 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("form-meta");
   if (!form) return;
   const resultado = document.getElementById("resultado-meta");
+  const container = document.getElementById("container");
+  const btnSimular = document.getElementsByClassName("btn-simular")[0];
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    resultado.style.display = "block";
 
     const meta = parseFloat(document.getElementById("meta").value);
     const meses = parseInt(document.getElementById("meses").value);
     const taxa = parseFloat(document.getElementById("taxa-meta").value) / 100;
 
     if (meta <= 0 || meses <= 0 || taxa < 0) {
-      alert("Por favor, insira valores válidos.");
+      alert("Por favor, insira valores válidos.\n- Meta > 0\n- Meses > 0\n- Taxa ≥ 0%");
       return;
     }
+
+    resultado.style.display = "block";
+    btnSimular.style.display = "none";
 
     const aporteSemRendimento = meta / meses;
 
@@ -48,6 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
           Esse valor pode ser usado para outras metas, lazer ou reforço na sua reserva financeira.
         </p>`;
       }
+
+      container.innerHTML += `
+      <div class="div-btn-simular">
+        <button id="nova-simulacao" class="btn-simular">Nova Simulação</button>
+      </div>`;
+
   });
 
   function formatarValor(valor) {

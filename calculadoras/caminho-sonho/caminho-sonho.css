@@ -1,3 +1,5 @@
+@import url('styles/style-nav.css');
+  
   .resultado {
     margin-top: 20px;
     font-size: 1.1rem;
@@ -47,4 +49,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .btn-simular {
+    display: block;
   }

@@ -1,2 +1,7 @@
-import './scripts/constancia.js';
-import './scripts/caminho-sonho.js';
+
+export function formatarValor(valor) {
+    return valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  }

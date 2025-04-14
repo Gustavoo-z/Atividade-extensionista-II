@@ -1,23 +1,25 @@
+import { formatarValor } from "../../script.js";
+
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("form-investimento");
+    const form = document.getElementById("form-constancia");
     if (!form) return;
-    const resultado = document.getElementById("resultado");
-    const graficoContainer = document.getElementById("graficoContainer");
+    const resultado = document.getElementById("resultado-constancia");
+    const graficoContainer = document.getElementById("graficoContainer-constancia");
     const canvas = document.getElementById("graficoConstancia");
-    const botaoSimular = document.getElementById("btn-simular");
+    const botaoSimular = document.getElementById("btn-simular-constancia");
   
     let grafico;
   
     form.addEventListener("submit", function (e) {
       e.preventDefault();
   
-      const aporteInput = document.getElementById("aporte");
-      const mesesInput = document.getElementById("duracao");
-      const taxaInput = document.getElementById("taxa");
+      const aporteInput = document.getElementById("investimento-constancia");
+      const mesesInput = document.getElementById("duracao-constancia");
+      const taxaInput = document.getElementById("taxa-constancia");
 
-      const aporte = parseFloat(document.getElementById("aporte").value);
-      const meses = parseInt(document.getElementById("duracao").value);
-      const taxa = parseFloat(document.getElementById("taxa").value) / 100;
+      const aporte = parseFloat(document.getElementById("investimento-constancia").value);
+      const meses = parseInt(document.getElementById("duracao-constancia").value);
+      const taxa = parseFloat(document.getElementById("taxa-constancia").value) / 100;
   
       if (isNaN(aporte) || isNaN(meses) || isNaN(taxa)) {
         resultado.innerHTML = `<p style="color: red;">Por favor, preencha todos os campos corretamente.</p>`;
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (aporte <= 0 || meses <= 0 || taxa < 0 || isNaN(aporte) || isNaN(meses) || isNaN(taxa)) {
-        alert("Por favor, insira valores válidos.\n- Aporte > 0\n- Duração > 0\n- Taxa ≥ 0%");
+        alert("Por favor, insira valores válidos.\n- Investimento > 0\n- Duração > 0\n- Taxa ≥ 0%");
         return;
       }
   
@@ -42,31 +44,32 @@ document.addEventListener("DOMContentLoaded", function () {
         valoresComRendimento.push(totalComRendimento.toFixed(2));
         valoresSemRendimento.push(totalSemRendimento.toFixed(2));
       }
-  
-      const formatar = valor =>
-        valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
     
       resultado.innerHTML = `
-        <p><strong>Total investido:</strong> ${formatar(totalSemRendimento)}</p>
-        <p><strong>Total com rendimento:</strong> ${formatar(totalComRendimento)}</p>
-      `;
+        <p class=total-investido-constancia><strong>Total investido:</strong>&nbsp; <span>${formatarValor(totalSemRendimento)}</span></p>
+        <p class=total-com-rendimento-constancia><strong>Total com rendimento:</strong>&nbsp; <span>${formatarValor(totalComRendimento)}</span></p>`;
+
+      if(totalComRendimento > totalSemRendimento) {
+        const diferenca = totalComRendimento - totalSemRendimento;
+
+        resultado.innerHTML += `<p class="resultado-constancia">Ao investir  <span>&nbsp;${formatarValor(aporte)}&nbsp;</span> por <span>&nbsp;${meses}&nbsp;</span> meses com uma taxa de <span>&nbsp;${taxa * 100}%</span>, seu dinheiro rendeu <span>&nbsp;${formatarValor(diferenca)}</span>.</p>`;
+      }
       
       botaoSimular.style.display = "none";
 
       resultado.innerHTML += `
-      <div style="margin-top: 1rem;">
-        <button id="nova-simulacao" class="btn-simular">Nova Simulação</button>
-      </div>
-    `;
+      <div class="div-btn-simular-constancia">
+        <button id="btn-nova-simulacao" class="btn-simular-constancia"">Nova Simulação</button>
+      </div>`;
 
-    aporteInput.disabled = true;
-    aporteInput.style.color = "#f0f0f0";
-    mesesInput.disabled = true;
-    mesesInput.style.color = "#f0f0f0";
-    taxaInput.disabled = true;
-    taxaInput.style.color = "#f0f0f0";
+      aporteInput.disabled = true;
+      aporteInput.style.color = "#f0f0f0";
+      mesesInput.disabled = true;
+      mesesInput.style.color = "#f0f0f0";
+      taxaInput.disabled = true;
+      taxaInput.style.color = "#f0f0f0";
 
-    document.getElementById("nova-simulacao").addEventListener("click", () => {
+    document.getElementById("btn-nova-simulacao").addEventListener("click", () => {
       form.reset();
       resultado.innerHTML = "";
       graficoContainer.style.display = "none";
@@ -101,8 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "Com Investimento",
               data: valoresComRendimento,
-              borderColor: "#007bff",
-              backgroundColor: "#007bff44",
+              borderColor: "#00c853",
+              backgroundColor: "#00b140",
               fill: false,
             },
           ],

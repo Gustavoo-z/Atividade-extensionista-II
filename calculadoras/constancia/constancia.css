@@ -1,0 +1,116 @@
+@import url('/style.css');
+@import url('/styles/style-nav.css');
+
+.container-constancia {
+    background-color: var(--cor-secundaria);
+    color: #fff;
+    padding: 2em;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 2em auto;
+}
+
+.form-constancia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-constancia {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.subtitulo-constancia {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: var(--cor-texto-secundario);
+}
+
+.label-constancia {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.input-constancia {
+    text-align: center;
+    width: 65%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 1em;
+}
+
+.btn-simular-constancia {
+    margin-top: 1em;
+    width: 30%;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #00c853;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-simular-constancia:hover {
+    background-color: #00b140;
+}
+
+.div-btn-simular-constancia {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.canvas-constancia {
+    margin-top: 2em;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.grafico-container-constancia {
+    max-width: 500px;
+    margin: 30px auto 0;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.grafico-constancia {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0;
+  }
+  
+.resultado-constancia {
+    margin-top: 1.5rem;
+}
+
+.resultado-constancia p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.resultado-constancia span {
+    font-weight: 600;
+}
+
+.total-investido-constancia span {
+    font-weight: bold;
+    color: var(--cor-texto-secundario);
+}
+
+.total-com-rendimento-constancia span {
+    font-weight: bold;
+    color: #00c853;
+}

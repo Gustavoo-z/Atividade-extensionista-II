@@ -1,162 +1,19 @@
-@import url('styles/caminho-sonho.css');
-@import url('styles/constancia.css');
-@import url('styles/paciencia.css');
-@import url('styles/pequenos-gastos.css');
-@import url('styles/peso-juros.css');
-@import url('styles/preco-cafezinho.css');
+@import url('/styles/style-index.css');
+
+:root {
+  --cor-fundo: #111;
+  --cor-texto: #fff;
+  --cor-secundaria: #1a1a1a;
+  --cor-borda: #444;
+  --cor-borda-hover: #666;
+  --cor-texto-secundario: #ccc;
+  --cor-card: #000;
+  --fonte-principal: 'Arial', sans-serif;
+}
 
 body {
     margin: 0;
-    background-color: #111;
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-  }
-  
-  .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #1a1a1a;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  }
-  
-  h1 {
-    margin-bottom: 10px;
-    font-size: 2rem;
-  }
-  
-  .subtitulo {
-    color: #ccc;
-    margin-bottom: 30px;
-  }
-  
-  .buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  
-  .card {
-    position: relative;
-    background-color: #fff;
-    color: #000;
-    width: 280px;
-    height: 60px;
-    border-radius: 12px;
-    transition: 0.3s;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .card:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .card a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #000;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-  }
-  
-  .tooltip {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #222;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 0.9em;
-    width: 200px;
-    z-index: 10;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    transition-delay: 0.2s;
-  }
-  
-  .card:hover .tooltip {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0.2s;
-  }
-
-  .autor-text {
-    margin-bottom: 0;
-    font-size: 14px;
-    color: #ccc;
-  }
-
-  .autor-github {
-    color: #ccc;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .autor-github::after {
-    color: #ccc;
-    text-decoration: none;
-  }
-
-  .navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .nav-arrow img {
-    width: 25px;
-    height: 25px;
-    transition: transform 0.3s;
-  }
-
-  .nav-arrow {
-    font-size: 2rem;
-    background-color: #444;
-    color: white;
-    border-radius: 50%;
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    transition: background 0.3s;
-  }
-  
-  .nav-arrow:hover {
-    background-color: #666;
-    transform: scale(1.05);
-  }
-  
-  .home-icon {
-    font-size: 1.8rem;
-    text-decoration: none;
-    padding: 5px;
-    border-radius: 50%;
-    background-color: #444;
-    color: white;
-    transition: background 0.3s;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-
-  .home-icon img {
-    width: 80%;
-    height: 25px;
-    transition: transform 0.3s;
-  }
-  
-  .home-icon:hover {
-    background-color: #666;
-    transform: scale(1.05);
-  }
-  
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+}
