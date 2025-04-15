@@ -4,11 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("form-caminho");
   if (!form) return;
   const resultado = document.getElementById("resultado-caminho");
-  const container = document.getElementById("container-caminho");
   const btnSimular = document.getElementsByClassName("btn-simular-caminho")[0];
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    const metaInput = document.getElementById("meta-caminho");
+    const mesesInput = document.getElementById("meses-caminho");
+    const taxaInput = document.getElementById("taxa-caminho");
 
     const meta = parseFloat(document.getElementById("meta-caminho").value);
     const meses = parseInt(document.getElementById("meses-caminho").value);
@@ -33,31 +36,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     resultado.innerHTML = `
-      <p><strong>Aporte mensal sem rendimento:</strong> ${formatarValor(aporteSemRendimento)}</p>
-      <p><strong>Aporte mensal com rendimento:</strong> ${formatarValor(aporteComRendimento)}</p>`;
+      <p class="resultado-sem-rendimento"><strong>Investimento mensal sem rendimento:</strong> <span>${formatarValor(aporteSemRendimento)}</span></p>
+      <p class="resultado-com-rendimento"><strong>Investimento mensal com rendimento:</strong> <span>${formatarValor(aporteComRendimento)}</span></p>`;
 
       const diferenca = aporteSemRendimento - aporteComRendimento;
 
       if (diferenca > 0) {
-      const economiaAnual = diferenca * 12;
+      const economiEmMeses = diferenca * meses;
 
       resultado.innerHTML += `
-        <hr style="margin: 1rem 0; border-top: 1px solid #ccc;">
-        <p><strong>Com base nos cálculos, mensalmente sobraria:</strong> 
-          <span style="color: #007bff;">${formatarValor(diferenca)}</span>
-        </p>
-        <p><strong>Economia total durante ${meses} meses:</strong> 
-          <span style="color: #28a745;">${formatarValor(economiaAnual)}</span>
-        </p>
-        <p>
-          Esse valor pode ser usado para outras metas, lazer ou reforço na sua reserva financeira.
-        </p>`;
+        <p class="resultado-caminho-2">Mensalmente sobraria <strong>${formatarValor(diferenca)}</strong> e no total dos <strong>${meses}</strong> meses sobraria <strong>${formatarValor(economiEmMeses)}</strong>.</p>`;
       }
 
       resultado.innerHTML += `
       <div class="div-btn-simular-caminho">
         <button id="nova-simulacao-caminho" class="btn-simular-caminho">Nova Simulação</button>
       </div>`;
+
+      metaInput.disabled = true;
+      metaInput.style.color = "#f0f0f0";
+      mesesInput.disabled = true;
+      mesesInput.style.color = "#f0f0f0";
+      taxaInput.disabled = true;
+      taxaInput.style.color = "#f0f0f0";
+
+    document.getElementById("nova-simulacao-caminho").addEventListener("click", () => {
+      form.reset();
+      resultado.innerHTML = "";
+      btnSimular.style.display = "block";
+      metaInput.disabled = false;
+      metaInput.style.color = "#000";
+      mesesInput.disabled = false;
+      mesesInput.style.color = "#000";
+      taxaInput.disabled = false;
+      taxaInput.style.color = "#000";
+    });
 
   });
 });
