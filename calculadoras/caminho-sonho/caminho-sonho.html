@@ -4,33 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caminho até o Sonho</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/calculadoras/caminho-sonho/caminho-sonho.css">
 </head>
 <body>
-  <section class="container">
-    <div class="navigation">
-      <a href="constancia.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
-      <a href="../index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
-      <a href="paciencia.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
+  <section class="container-caminho">
+    <div class="nav-container">
+      <a href="/calculadoras/constancia/constancia.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
+      <a href="/index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
+      <a href="/calculadoras/paciencia/paciencia.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
     </div>  
-    <h1>Caminho até o Sonho</h1>
-    <p>Descubra quanto você precisa guardar por mês para alcançar seu objetivo financeiro em um prazo determinado.</p>
-    <form id="form-meta">
-      <label for="meta">Meta a alcançar (R$):</label>
-      <input type="number" id="meta" required>
+    <h1 class="titulo-caminho">Caminho até o Sonho</h1>
+    <p class="subtitulo-caminho">Descubra quanto você precisa guardar por mês para alcançar seu objetivo financeiro em um prazo determinado.</p>
+    <form id="form-caminho" class="form-caminho">
+      <label class="label-caminho" for="meta-caminho">Meta a alcançar (R$):</label>
+      <input class="input-caminho" type="number" id="meta-caminho" required>
     
-      <label for="meses">Em quantos meses deseja alcançar:</label>
-      <input type="number" id="meses" required>
+      <label class="label-caminho" for="meses-caminho">Em quantos meses deseja alcançar:</label>
+      <input class="input-caminho" type="number" id="meses-caminho" required>
     
-      <label for="taxa-meta">Taxa de rendimento mensal (%):</label>
-      <input type="number" id="taxa-meta" value="0.8" step="0.01">
+      <label class="label-caminho" for="taxa-caminho">Taxa de rendimento mensal (%):</label>
+      <input class="input-caminho" type="number" id="taxa-caminho" value="0.8" step="0.01">
     
-      <button class="btn-simular">Calcular</button>
+      <button class="btn-simular-caminho">Calcular</button>
     </form>
     <section class="resultado-caminho">
-      <div style="display: none;" id="resultado-meta"></div>
+      <div style="display: none;" id="resultado-caminho"></div>
     </section>
-    <script type="module" src="../script.js"></script>
+    <script type="module" src="/calculadoras/caminho-sonho/caminho-sonho.js"></script>
   </section>
 </body>
 </html>

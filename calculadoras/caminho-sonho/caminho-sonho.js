@@ -1,16 +1,18 @@
+import { formatarValor } from "../../script.js";
+
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("form-meta");
+  const form = document.getElementById("form-caminho");
   if (!form) return;
-  const resultado = document.getElementById("resultado-meta");
-  const container = document.getElementById("container");
-  const btnSimular = document.getElementsByClassName("btn-simular")[0];
+  const resultado = document.getElementById("resultado-caminho");
+  const container = document.getElementById("container-caminho");
+  const btnSimular = document.getElementsByClassName("btn-simular-caminho")[0];
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const meta = parseFloat(document.getElementById("meta").value);
-    const meses = parseInt(document.getElementById("meses").value);
-    const taxa = parseFloat(document.getElementById("taxa-meta").value) / 100;
+    const meta = parseFloat(document.getElementById("meta-caminho").value);
+    const meses = parseInt(document.getElementById("meses-caminho").value);
+    const taxa = parseFloat(document.getElementById("taxa-caminho").value) / 100;
 
     if (meta <= 0 || meses <= 0 || taxa < 0) {
       alert("Por favor, insira valores válidos.\n- Meta > 0\n- Meses > 0\n- Taxa ≥ 0%");
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <p><strong>Com base nos cálculos, mensalmente sobraria:</strong> 
           <span style="color: #007bff;">${formatarValor(diferenca)}</span>
         </p>
-        <p><strong>Economia total ao longo de um ano:</strong> 
+        <p><strong>Economia total durante ${meses} meses:</strong> 
           <span style="color: #28a745;">${formatarValor(economiaAnual)}</span>
         </p>
         <p>
@@ -52,17 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
         </p>`;
       }
 
-      container.innerHTML += `
-      <div class="div-btn-simular">
-        <button id="nova-simulacao" class="btn-simular">Nova Simulação</button>
+      resultado.innerHTML += `
+      <div class="div-btn-simular-caminho">
+        <button id="nova-simulacao-caminho" class="btn-simular-caminho">Nova Simulação</button>
       </div>`;
 
   });
-
-  function formatarValor(valor) {
-    return valor.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-  }
 });
