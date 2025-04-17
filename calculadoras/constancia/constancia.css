@@ -69,28 +69,6 @@
     margin-top: 1rem;
     margin-bottom: 1.5rem;
 }
-
-.canvas-constancia {
-    margin-top: 2em;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.grafico-container-constancia {
-    max-width: 500px;
-    margin: 30px auto 0;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-.grafico-constancia {
-    width: 100% !important;
-    height: auto !important;
-    margin: 0;
-  }
   
 .resultado-constancia {
     margin-top: 1.5rem;
@@ -116,3 +94,25 @@
     font-weight: bold;
     color: #00c853;
 }
+
+.canvas-constancia {
+    margin-top: 2em;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.grafico-container-constancia {
+    max-width: 500px;
+    margin: 30px auto 0;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.grafico-constancia {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0;
+  }

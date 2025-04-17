@@ -4,18 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pequenos Gastos, Grandes Impactos</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/calculadoras/pequenos-gastos/pequenos-gastos.css">
 </head>
 <body>
-  <section class="container">
-    <div class="navigation">
-      <a href="paciencia.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
-      <a href="../index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
-      <a href="peso-juros.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
-    </div>  
-    <h1>Pequenos Gastos, Grandes Impactos</h1>
-    <p>Veja como pequenas despesas frequentes podem fazer uma grande diferença no seu orçamento ao longo do tempo.</p>
+  <section class="container-pequenos">
+    <div class="nav-container">
+      <a href="/calculadoras/paciencia/paciencia.html" class="nav-arrow left">
+        <img src="/img/arrow-left-solid.svg" alt="Voltar">
+      </a>
+      <a href="/index.html" class="home-icon">
+        <img src="/img/house-solid.svg" alt="Início">
+      </a>
+      <a href="/calculadoras/peso-juros/peso-juros.html" class="nav-arrow right">
+        <img src="/img/arrow-right-solid.svg" alt="Próximo">
+      </a>
+    </div>
 
+    <h1 class="titulo-pequenos">Pequenos Gastos, Grandes Impactos</h1>
+    <p class="subtitulo-pequenos">Descubra quanto aquele gasto recorrente representa ao longo do tempo — e o impacto que ele pode ter se fosse investido.</p>
+
+    <form id="form-pequenos" class="form-pequenos">
+      <label class="label-pequenos" for="valor-pequenos">Valor do gasto (R$):</label>
+      <input class="input-pequenos" type="number" step="any" id="valor-pequenos" required>
+
+      <label class="label-pequenos" for="frequencia-pequenos">Frequência:</label>
+      <select class="input-pequenos" id="frequencia-pequenos" required>
+        <option value="diario">Diário</option>
+        <option value="semanal">Semanal</option>
+        <option value="mensal">Mensal</option>
+      </select>
+
+      <label class="label-pequenos" for="taxa-pequenos">Taxa de rendimento mensal (%):</label>
+      <input class="input-pequenos" type="number" id="taxa-pequenos" value="0.8" step="0.01">
+
+      <button class="btn-simular-pequenos">Simular</button>
+    </form>
+
+    <section class="resultado-pequenos">
+      <div style="display: none;" id="resultado-pequenos"></div>
+    </section>
+
+    <div id="graficoContainer-pequenos" style="display: none;">
+      <canvas id="grafico-pequenos"></canvas>
+    </div>
+
+    <script type="module" src="/calculadoras/pequenos-gastos/pequenos-gastos.js"></script>
   </section>
 </body>
 </html>
