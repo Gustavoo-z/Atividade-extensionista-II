@@ -2,79 +2,72 @@
 @import url('/styles/style-nav.css');
 
 .container-pequenos {
-    max-width: 600px;
-    margin: 2rem auto;
-    background-color: var(--cor-secundaria);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    font-family: var(--fonte-principal);
-    color: var(--cor-texto);
-  }
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  padding: 2em;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2em auto;
+}
+
+.form-pequenos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-pequenos {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.subtitulo-pequenos {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: var(--cor-texto-secundario);
+}
+
+.label-pequenos {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.input-pequenos {
+  text-align: center;
+  width: 65%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1em;
+}
+
+.btn-simular-pequenos {
+  margin-top: 1em;
+  width: 30%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #00c853;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-simular-pequenos:hover {
+  background-color: #00b140;
+}
   
-  .titulo-pequenos {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .subtitulo-pequenos {
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    color: var(--cor-texto-secundario);
-  }
-  
-  .form-pequenos {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .label-pequenos {
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-  }
-  
-  .input-pequenos {
-    padding: 0.6rem;
-    border-radius: 6px;
-    border: 1px solid var(--cor-borda);
-    font-size: 1rem;
-    color: var(--cor-texto);
-  }
-  
-  .input-pequenos:focus {
+.input-pequenos:focus {
     border-color: var(--cor-borda-hover);
     outline: none;
-  }
+}  
   
-  .btn-simular-pequenos {
-    background-color: #00c853;
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-simular-pequenos:hover {
-    background-color: #00b140;
-  }
-  
-  .resultado-pequenos {
-    margin-top: 2rem;
-    font-size: 1rem;
-    background: var(--cor-secundaria);
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    color: var(--cor-texto);
-  }
-  
-  #grafico-pequenos {
+#grafico-pequenos {
     max-width: 100%;
     margin-top: 2rem;
-  }
+}
