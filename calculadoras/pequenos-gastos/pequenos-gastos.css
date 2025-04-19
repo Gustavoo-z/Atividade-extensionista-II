@@ -45,6 +45,10 @@
   margin-bottom: 1em;
 }
 
+select.input-pequenos {
+  min-width: 475px;
+}
+
 .btn-simular-pequenos {
   margin-top: 1em;
   width: 30%;
@@ -66,8 +70,26 @@
     border-color: var(--cor-borda-hover);
     outline: none;
 }  
+
+.resultado-pequenos {
+  text-align: center;
+}
+
+.resultado-texto-pequenos {
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
   
 #grafico-pequenos {
     max-width: 100%;
     margin-top: 2rem;
+}
+
+#graficoContainer-pequenos {
+  max-width: 500px;
+    margin: 30px auto 0;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

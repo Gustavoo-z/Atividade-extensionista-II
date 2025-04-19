@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const valorInput = document.getElementById("valor-pequenos");
+    const freqInput = document.getElementById("frequencia-pequenos");
+    const taxaInput = document.getElementById("taxa-pequenos");
+    
+    valorInput.disabled = true;
+    valorInput.style.color = "#f0f0f0";
+    freqInput.disabled = true;
+    freqInput.style.color = "#fff";
+    freqInput.style.backgroundColor = "#888";
+    taxaInput.disabled = true;
+    taxaInput.style.color = "#f0f0f0";
+
     const valor = parseFloat(document.getElementById("valor-pequenos").value);
     const frequencia = document.getElementById("frequencia-pequenos").value;
     const taxa = parseFloat(document.getElementById("taxa-pequenos").value) / 100;
@@ -35,14 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
     resultado.style.display = "block";
     resultado.innerHTML = `
       <p><strong>Gasto mensal:</strong> ${formatarValor(mensal)}</p>
-      <p>Veja quanto esse hábito representa ao longo do tempo:</p>
+      <p class="resultado-texto-pequenos">Veja quanto esse hábito representa ao longo do tempo:</p>
     `;
 
     anos.forEach((ano, i) => {
       resultado.innerHTML += `
         <p><strong>${ano} ano${ano > 1 ? 's' : ''}</strong>:
           ${formatarValor(semAplicacao[i])} (sem aplicar),
-          ${formatarValor(comAplicacao[i])} (se aplicasse com ${taxa * 100}% a.m.)</p>
+          ${formatarValor(comAplicacao[i])} (aplicando com a taxa de ${taxa * 100}%)</p>
       `;
     });
 
