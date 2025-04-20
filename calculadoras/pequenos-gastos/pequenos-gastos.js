@@ -44,20 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return mensal * fator;
     });
 
-    resultado.style.display = "block";
-    resultado.innerHTML = `
-      <p><strong>Gasto mensal:</strong> ${formatarValor(mensal)}</p>
-      <p class="resultado-texto-pequenos">Veja quanto esse hábito representa ao longo do tempo:</p>
-    `;
-
-    anos.forEach((ano, i) => {
-      resultado.innerHTML += `
-        <p><strong>${ano} ano${ano > 1 ? 's' : ''}</strong>:
-          ${formatarValor(semAplicacao[i])} (sem aplicar),
-          ${formatarValor(comAplicacao[i])} (aplicando com a taxa de ${taxa * 100}%)</p>
-      `;
-    });
-
     graficoContainer.style.display = "block";
     if (grafico) grafico.destroy();
 
@@ -100,5 +86,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
+
+    resultado.style.display = "block";
+    resultado.innerHTML = `
+      <p><strong>Gasto mensal:</strong> ${formatarValor(mensal)}</p>
+      <p class="resultado-texto-pequenos">Veja quanto esse hábito representa ao longo do tempo:</p>
+    `;
+
+    anos.forEach((ano, i) => {
+      resultado.innerHTML += `
+        <p><strong>${ano} ano${ano > 1 ? 's' : ''}</strong>:
+          ${formatarValor(semAplicacao[i])} (sem aplicar),
+          ${formatarValor(comAplicacao[i])} (aplicando com a taxa de ${taxa * 100}%)</p>
+      `;
+    });
+
+    const botaoSimular = document.getElementsByClassName("btn-simular-pequenos")[0];
+    botaoSimular.style.display = "none";
+
+    resultado.innerHTML += `
+      <div class="div-btn-simular-pequenos">
+        <button id="btn-nova-simulacao" class="btn-simular-pequenos">Nova Simulação</button>
+      </div>`;
+
   });
 });
