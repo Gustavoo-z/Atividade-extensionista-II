@@ -75,6 +75,20 @@ select.input-pequenos {
   text-align: center;
 }
 
+.resultado-pequenos p span {
+  font-weight: bold;
+  color: var(--cor-texto-secundario);
+}
+
+.resultado-pequenos p span.com-aplicacao {
+  color: #00c853;
+}
+
+.resultado-pequenos p span.taxa-aplicacao {
+  color: white;
+  font-weight: 600;
+}
+
 .resultado-texto-pequenos {
   margin-top: 1.5rem;
   font-weight: 600;

@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const diferenca = totalComRendimento - totalSemRendimento;
       resultado.innerHTML += `
         <p class="resultado-constancia">
-          Ao investir <span>&nbsp;${formatarValor(aporte)}</span> por <span>&nbsp;${meses}</span> meses com uma taxa de <span>&nbsp;${taxa * 100}%</span>, seu dinheiro rendeu <span>&nbsp;${formatarValor(diferenca)}</span>.
+          Ao investir <span>&nbsp;${formatarValor(aporte)}&nbsp;</span> por <span>&nbsp;${meses}&nbsp;</span> meses com uma taxa de <span>&nbsp;${taxa * 100}%</span>, seu dinheiro rendeu <span>&nbsp;${formatarValor(diferenca)}</span>.
         </p>`;
     }
 

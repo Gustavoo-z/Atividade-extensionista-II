@@ -89,15 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resultado.style.display = "block";
     resultado.innerHTML = `
-      <p><strong>Gasto mensal:</strong> ${formatarValor(mensal)}</p>
+      <p><strong>Gasto total mensal:</strong> <span>${formatarValor(mensal)}</span></p>
       <p class="resultado-texto-pequenos">Veja quanto esse hábito representa ao longo do tempo:</p>
     `;
 
     anos.forEach((ano, i) => {
       resultado.innerHTML += `
         <p><strong>${ano} ano${ano > 1 ? 's' : ''}</strong>:
-          ${formatarValor(semAplicacao[i])} (sem aplicar),
-          ${formatarValor(comAplicacao[i])} (aplicando com a taxa de ${taxa * 100}%)</p>
+          <span>${formatarValor(semAplicacao[i])}</span> (sem aplicar),
+          <span class="com-aplicacao">${formatarValor(comAplicacao[i])}</span> (aplicando com a taxa de <span class="taxa-aplicacao">${taxa * 100}%</span>)</p>
       `;
     });
 
@@ -108,6 +108,21 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="div-btn-simular-pequenos">
         <button id="btn-nova-simulacao" class="btn-simular-pequenos">Nova Simulação</button>
       </div>`;
+
+      document.getElementById("btn-nova-simulacao").addEventListener("click", () => {
+        form.reset();
+        resultado.innerHTML = "";
+        graficoContainer.style.display = "none";
+        botaoSimular.style.display = "block";
+        valorInput.disabled = false;
+        valorInput.style.color = "#000";
+        freqInput.disabled = false;
+        freqInput.style.color = "#000";
+        freqInput.style.backgroundColor = "#fff";
+        taxaInput.disabled = false;
+        taxaInput.style.color = "#000";
+        if (grafico) grafico.destroy();
+      });
 
   });
 });
