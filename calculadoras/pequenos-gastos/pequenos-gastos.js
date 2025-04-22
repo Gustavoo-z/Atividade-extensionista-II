@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     anos.forEach((ano, i) => {
       resultado.innerHTML += `
-        <p><strong>${ano} ano${ano > 1 ? 's' : ''}</strong>:
-          <span>${formatarValor(semAplicacao[i])}</span> (sem aplicar),
-          <span class="com-aplicacao">${formatarValor(comAplicacao[i])}</span> (aplicando com a taxa de <span class="taxa-aplicacao">${taxa * 100}%</span>)</p>
+        <p>Em <strong>${ano} ano${ano > 1 ? 's' : ''}</strong> seria gasto
+          <span>${formatarValor(semAplicacao[i])}</span>,
+          caso aplicasse com a taxa de <span class="taxa-aplicacao">${taxa * 100}%</span> você teria <span class="com-aplicacao">${formatarValor(comAplicacao[i])}</span>.</p>
       `;
     });
 

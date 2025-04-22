@@ -4,18 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Paciência Compensa?</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/calculadoras/paciencia/paciencia.css">
 </head>
 <body>
-  <section class="container">
-    <div class="navigation">
-      <a href="caminho-sonho.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
-      <a href="../index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
-      <a href="pequenos-gastos.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
-    </div>  
-    <h1>A Paciência Compensa?</h1>
-    <p>Compare o custo de comprar parcelado versus guardar para comprar à vista. Vale a pena esperar?</p>
+  <section class="container-paciencia">
+    <div class="nav-container">
+      <a href="/calculadoras/caminho-sonho/caminho-sonho.html" class="nav-arrow left">
+        <img src="/img/arrow-left-solid.svg" alt="Voltar">
+      </a>
+      <a href="/index.html" class="home-icon">
+        <img src="/img/house-solid.svg" alt="Início">
+      </a>
+      <a href="/calculadoras/pequenos-gastos/pequenos-gastos.html" class="nav-arrow right">
+        <img src="/img/arrow-right-solid.svg" alt="Próximo">
+      </a>
+    </div>
 
+    <h1 class="titulo-paciencia">A Paciência Compensa?</h1>
+    <p class="subtitulo-paciencia">Compare o total pago ao parcelar e o tempo que levaria para comprar à vista aplicando o valor da parcela.</p>
+
+    <form id="form-paciencia" class="form-paciencia">
+      <label class="label-paciencia" for="valor-produto">Valor do produto (R$):</label>
+      <input class="input-paciencia" type="number" step="any" id="valor-produto" required>
+
+      <label class="label-paciencia" for="parcelas">Quantidade de parcelas:</label>
+      <input class="input-paciencia" type="number" id="parcelas" required>
+
+      <label class="label-paciencia" for="valor-parcela">Valor da parcela (R$):</label>
+      <input class="input-paciencia" type="number" step="any" id="valor-parcela" required>
+
+      <label class="label-paciencia" for="taxa-paciencia">Taxa de rendimento mensal (%):</label>
+      <input class="input-paciencia" type="number" id="taxa-paciencia" value="0.8" step="0.01">
+
+      <button class="btn-simular-paciencia">Simular</button>
+    </form>
+
+    <section class="resultado-paciencia">
+      <div style="display: none;" id="resultado-paciencia"></div>
+    </section>
+
+    <div id="graficoContainer-paciencia" style="display: none;">
+      <canvas id="grafico-paciencia"></canvas>
+    </div>
+
+    <script type="module" src="/calculadoras/paciencia/paciencia.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </section>
 </body>
 </html>
