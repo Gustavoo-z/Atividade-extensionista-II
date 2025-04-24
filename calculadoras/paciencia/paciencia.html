@@ -24,18 +24,15 @@
     <p class="subtitulo-paciencia">Compare o total pago ao parcelar e o tempo que levaria para comprar à vista aplicando o valor da parcela.</p>
 
     <form id="form-paciencia" class="form-paciencia">
-      <label class="label-paciencia" for="valor-produto">Valor do produto (R$):</label>
-      <input class="input-paciencia" type="number" step="any" id="valor-produto" required>
-
-      <label class="label-paciencia" for="parcelas">Quantidade de parcelas:</label>
-      <input class="input-paciencia" type="number" id="parcelas" required>
-
-      <label class="label-paciencia" for="valor-parcela">Valor da parcela (R$):</label>
-      <input class="input-paciencia" type="number" step="any" id="valor-parcela" required>
-
+      <label class="label-paciencia" for="valor-vista">Valor do produto à vista (R$):</label>
+      <input class="input-paciencia" type="number" step="any" id="valor-vista" required>
+    
+      <label class="label-paciencia" for="valor-parcelado">Valor total parcelado (R$):</label>
+      <input class="input-paciencia" type="number" step="any" id="valor-parcelado" required>
+    
       <label class="label-paciencia" for="taxa-paciencia">Taxa de rendimento mensal (%):</label>
       <input class="input-paciencia" type="number" id="taxa-paciencia" value="0.8" step="0.01">
-
+    
       <button class="btn-simular-paciencia">Simular</button>
     </form>
 
