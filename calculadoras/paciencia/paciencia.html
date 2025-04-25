@@ -28,7 +28,10 @@
       <input class="input-paciencia" type="number" step="any" id="valor-vista" required>
     
       <label class="label-paciencia" for="valor-parcelado">Valor total parcelado (R$):</label>
-      <input class="input-paciencia" type="number" step="any" id="valor-parcelado" required>
+      <div class="campo-parcelado-linha">
+        <input class="input-paciencia" type="number" step="any" id="valor-parcelado" required>
+        <input class="input-paciencia input-pequeno" type="number" id="qtd-parcelas" min="1" max="18" placeholder="Parcelas" required>
+      </div>
     
       <label class="label-paciencia" for="taxa-paciencia">Taxa de rendimento mensal (%):</label>
       <input class="input-paciencia" type="number" id="taxa-paciencia" value="0.8" step="0.01">

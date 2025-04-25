@@ -13,49 +13,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const valorVista = parseFloat(document.getElementById("valor-vista").value);
     const valorParcelado = parseFloat(document.getElementById("valor-parcelado").value);
+    const parcelas = parseInt(document.getElementById("qtd-parcelas").value);
     const taxa = parseFloat(document.getElementById("taxa-paciencia").value) / 100;
 
-    if (valorVista <= 0 || valorParcelado <= 0 || isNaN(taxa)) {
+    if (
+      valorVista <= 0 ||
+      valorParcelado <= 0 ||
+      isNaN(parcelas) ||
+      parcelas <= 0 ||
+      isNaN(taxa)
+    ) {
       resultado.innerHTML = `<p style='color:red;'>Preencha todos os campos corretamente.</p>`;
       return;
     }
 
-    const opcoesParcelas = [6, 12, 18, 24, 36];
-    let parcelas = null;
-    let valorParcela = null;
+    const valorParcela = valorParcelado / parcelas;
 
-    for (let n of opcoesParcelas) {
-      const tentativa = valorParcelado / n;
-      if (tentativa >= 50 && tentativa <= 1000) {
-        parcelas = n;
-        valorParcela = tentativa;
-        break;
-      }
+    let valorFinal = 0;
+    for (let i = 1; i <= parcelas; i++) {
+      valorFinal = (valorFinal + valorParcela) * (1 + taxa);
     }
 
-    if (!parcelas || !valorParcela) {
-      resultado.innerHTML = `<p style='color:red;'>Não foi possível estimar um parcelamento realista.</p>`;
-      return;
-    }
-
-    let mesesNecessarios;
-    if (taxa === 0) {
-      mesesNecessarios = Math.ceil(valorVista / valorParcela);
-    } else {
-      const numerador = Math.log(1 + (valorVista * taxa) / valorParcela);
-      const denominador = Math.log(1 + taxa);
-      mesesNecessarios = Math.ceil(numerador / denominador);
-    }
-
-    const totalGuardando = valorParcela * mesesNecessarios;
-    const diferenca = valorParcelado - totalGuardando;
+    const diferenca = valorFinal - valorVista;
 
     resultado.style.display = "block";
     resultado.innerHTML = `
       <p><strong>Valor do produto à vista:</strong> ${formatarValor(valorVista)}</p>
-      <p><strong>Parcelamento estimado:</strong> ${parcelas}x de ${formatarValor(valorParcela)} (total de ${formatarValor(valorParcelado)})</p>
-      <p><strong>Aplicando ${formatarValor(valorParcela)} por mês:</strong> você alcançaria ${formatarValor(valorVista)} em ${mesesNecessarios} meses</p>
-      <p><strong>Total aplicado nesse tempo:</strong> ${formatarValor(totalGuardando)}</p>
+      <p><strong>Parcelamento:</strong> ${parcelas}x de ${formatarValor(valorParcela)} (total de ${formatarValor(valorParcelado)})</p>
+      <p><strong>Aplicando ${formatarValor(valorParcela)} por ${parcelas} meses com rendimento:</strong> você juntaria ${formatarValor(valorFinal)}</p>
       <p class="conclusao-paciencia">
         ${diferenca > 0
           ? `Você economizaria <strong>${formatarValor(diferenca)}</strong> aguardando.`
@@ -72,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         labels: ["Parcelado", "Guardando"],
         datasets: [{
           label: "Total pago (R$)",
-          data: [valorParcelado, totalGuardando],
+          data: [valorParcelado, valorFinal],
           backgroundColor: ["#f44336", "#00c853"]
         }]
       },

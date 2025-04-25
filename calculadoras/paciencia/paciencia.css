@@ -46,6 +46,21 @@
     margin-bottom: 1em;
 }
 
+#valor-parcelado {
+    width: 347px;
+}
+
+.campo-parcelado-linha {
+    width: 475px;
+    display: flex;
+    gap: 0.5rem;
+}
+  
+.input-pequeno {
+    width: 100px;
+    flex-shrink: 0;
+}  
+
 .btn-simular-paciencia {
     margin-top: 1em;
     width: 30%;
