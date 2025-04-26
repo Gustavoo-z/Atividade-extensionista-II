@@ -90,8 +90,6 @@
 }
 
 .resultado-paciencia p {
-    display: flex;
-    justify-content: center;
     align-items: center;
     text-align: center;
 }
@@ -112,8 +110,6 @@
 
 .conclusao-paciencia {
     margin-top: 1rem;
-    font-weight: bold;
-    font-size: 1.1rem;
     color: var(--cor-texto);
 }
   

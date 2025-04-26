@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resultado.style.display = "block";
     resultado.innerHTML = `
-      <p><strong>Valor do produto à vista:</strong> ${formatarValor(valorVista)}</p>
-      <p><strong>Parcelamento:</strong> ${parcelas}x de ${formatarValor(valorParcela)} (total de ${formatarValor(valorParcelado)})</p>
-      <p><strong>Aplicando ${formatarValor(valorParcela)} por ${parcelas} meses com rendimento:</strong> você juntaria ${formatarValor(valorFinal)}</p>
+      <p>Valor do produto à vista: <span>${formatarValor(valorVista)}</span>.</p>
+      <p>Parcelamento: <span>${parcelas}</span>x de <span>${formatarValor(valorParcela)}</span> (total de <span>${formatarValor(valorParcelado)}</span>).</p>
+      <p>Aplicando <strong>${formatarValor(valorParcela)}</strong> por <strong>${parcelas}</strong> meses com rendimento você juntaria <strong>${formatarValor(valorFinal)}</strong>.</p>
       <p class="conclusao-paciencia">
         ${diferenca > 0
-          ? `Você economizaria <strong>${formatarValor(diferenca)}</strong> aguardando.`
+          ? `Você demoraria para ter o produto, porém aplicando teria um lucro de <span>${formatarValor(diferenca)}</span>.`
           : `Parcelar resultaria em um custo menor neste caso.`}
       </p>
     `;
@@ -55,16 +55,30 @@ document.addEventListener("DOMContentLoaded", () => {
       type: "bar",
       data: {
         labels: ["Parcelado", "Guardando"],
-        datasets: [{
-          label: "Total pago (R$)",
-          data: [valorParcelado, valorFinal],
-          backgroundColor: ["#f44336", "#00c853"]
-        }]
+        datasets: [
+          {
+            label: "Total Parcelado",
+            data: [valorParcelado, 0],
+            backgroundColor: "#f44336",
+          },
+          {
+            label: "Valor à Vista",
+            data: [0, valorVista], 
+            backgroundColor: "#81d4fa",
+          },
+          {
+            label: "Diferença (Sobra)",
+            data: [0, Math.max(0, valorFinal - valorVista)],
+            backgroundColor: "#00c853", 
+          },
+        ],
       },
       options: {
         responsive: true,
         plugins: {
-          legend: { display: false },
+          legend: {
+            position: "top",
+          },
           tooltip: {
             callbacks: {
               label: ctx => `${ctx.dataset.label}: ${formatarValor(ctx.raw)}`
@@ -72,12 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         },
         scales: {
+          x: {
+            stacked: true,
+          },
           y: {
+            stacked: true,
             beginAtZero: true,
-            title: { display: true, text: "Valor Total (R$)" }
-          }
-        }
-      }
-    });
+            title: {
+              display: true,
+              text: "Valor Total (R$)",
+            },
+          },
+        },
+      },
+    });    
   });
 });
