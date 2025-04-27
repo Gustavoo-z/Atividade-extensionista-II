@@ -3,19 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O Preço do Cafézinho</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>O Preço do Cafezinho</title>
+  <link rel="stylesheet" href="/calculadoras/preco-cafezinho/preco-cafezinho.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <section class="container">
     <div class="navigation">
-      <a href="peso-juros.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
+      <a href="pequenos-gastos.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg" alt="Anterior"></a>
       <a href="../index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
-      <a href="constancia.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
-    </div>  
-    <h1>O Preço do Cafézinho</h1>
-    <p>Saiba quanto você pode economizar cortando pequenos gastos diários, como aquele cafézinho fora de casa.</p>
+      <a href="peso-dos-juros.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg" alt="Próximo"></a>
+    </div>
+
+    <h1>O Preço do Cafezinho</h1>
+    <p>Veja como pequenos gastos diários podem impactar seu bolso ao longo do tempo.</p>
+
+    <form id="form-cafezinho" class="form-cafezinho">
+      <div id="gastos-lista">
+        <div class="gasto-item">
+          <input type="text" placeholder="Nome do gasto" class="input-cafezinho nome-gasto" required>
+          <input type="number" placeholder="Valor (R$)" class="input-cafezinho valor-gasto" required>
+          <button type="button" class="btn-remover-gasto">-</button>
+        </div>
+      </div>
+
+      <button type="button" id="btn-adicionar-gasto" class="btn-simular-cafezinho">+ Adicionar Gasto</button>
+
+      <label for="duracao-cafezinho" class="label-cafezinho">Duração (em meses):</label>
+      <input type="number" id="duracao-cafezinho" class="input-cafezinho" required>
+
+      <label for="taxa-cafezinho" class="label-cafezinho">Taxa de rendimento mensal (%):</label>
+      <input type="number" id="taxa-cafezinho" class="input-cafezinho" value="0.8" step="0.01">
+
+      <button type="submit" class="btn-simular-cafezinho">Simular</button>
+    </form>
+
+    <div id="resultado-cafezinho"></div>
+
+    <div id="graficoContainer-cafezinho" style="display: none;">
+      <canvas id="grafico-cafezinho"></canvas>
+    </div>
 
   </section>
+
+  <script type="module" src="/calculadoras/preco-cafezinho/preco-cafezinho.js"></script>
 </body>
 </html>
