@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     div.innerHTML = `
       <input type="text" placeholder="Nome do gasto" class="input-cafezinho nome-gasto" required>
       <input type="number" placeholder="Valor (R$)" class="input-cafezinho valor-gasto" required>
+      <select class="input-cafezinho frequencia-gasto">
+        <option value="diario">Diário</option>
+        <option value="semanal">Semanal</option>
+        <option value="mensal">Mensal</option>
+      </select>
       <button type="button" class="btn-remover-gasto">-</button>
     `;
     gastosLista.appendChild(div);
@@ -34,10 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nomes = Array.from(document.querySelectorAll(".nome-gasto"));
     const valores = Array.from(document.querySelectorAll(".valor-gasto"));
+    const frequencias = Array.from(document.querySelectorAll(".frequencia-gasto"));
     const duracao = parseInt(document.getElementById("duracao-cafezinho").value);
     const taxa = parseFloat(document.getElementById("taxa-cafezinho").value) / 100;
 
-    if (nomes.length === 0 || valores.length === 0 || isNaN(duracao) || duracao <= 0) {
+    if (nomes.length === 0 || valores.length === 0 || frequencias.length === 0 || isNaN(duracao) || duracao <= 0) {
       resultado.innerHTML = `<p style='color:red;'>Preencha todos os campos corretamente.</p>`;
       return;
     }
@@ -49,11 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
     nomes.forEach((nomeInput, index) => {
       const nome = nomeInput.value.trim();
       const valor = parseFloat(valores[index].value);
+      const frequencia = frequencias[index].value;
 
       if (nome && valor > 0) {
+        let multiplicador = 1;
+        if (frequencia === "diario") multiplicador = 30;
+        else if (frequencia === "semanal") multiplicador = 4.3;
+        else if (frequencia === "mensal") multiplicador = 1;
+
+        const gastoMensal = valor * multiplicador;
         labels.push(nome);
-        dados.push(valor);
-        totalGastoMensal += valor;
+        dados.push(gastoMensal);
+        totalGastoMensal += gastoMensal;
       }
     });
 
@@ -76,9 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
       data: {
         labels: [...labels, "Economia com Investimento"],
         datasets: [{
-          data: [...dados, totalComRendimento - totalGasto],
+          data: [...dados, Math.max(0, totalComRendimento - totalGasto)],
           backgroundColor: [
-            "#ff6384", "#36a2eb", "#ffcd56", "#4bc0c0", "#9966ff", "#00c853"
+            "#ff6384", "#36a2eb", "#ffcd56", "#4bc0c0", "#9966ff", "#00c853", "#8e24aa"
           ],
         }],
       },
@@ -95,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Bloqueia o form e mostra "Nova Simulação"
     document.querySelectorAll(".input-cafezinho").forEach(input => input.disabled = true);
     document.querySelectorAll(".btn-remover-gasto").forEach(btn => btn.disabled = true);
     btnAdicionarGasto.style.display = "none";
@@ -118,6 +130,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="gasto-item">
           <input type="text" placeholder="Nome do gasto" class="input-cafezinho nome-gasto" required>
           <input type="number" placeholder="Valor (R$)" class="input-cafezinho valor-gasto" required>
+          <select class="input-cafezinho frequencia-gasto">
+            <option value="diario">Diário</option>
+            <option value="semanal">Semanal</option>
+            <option value="mensal">Mensal</option>
+          </select>
           <button type="button" class="btn-remover-gasto">-</button>
         </div>
       `;

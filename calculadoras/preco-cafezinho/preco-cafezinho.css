@@ -59,6 +59,15 @@
   align-items: center;
 }
 
+.frequencia-gasto {
+  color: #555;
+  width: 20%;
+  height: 35px;
+  border-radius: 8px;
+  background-color: white;
+  text-align: left;
+}
+
 .nome-gasto, .valor-gasto {
   flex: 1;
 }
