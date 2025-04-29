@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let labelsAtuais = [];
   let duracaoAtual = 1;
 
+  naoRemoverPrimeiroGasto();
+
   btnAdicionarGasto.addEventListener("click", adicionarGasto);
 
   form.addEventListener("submit", (e) => {
@@ -21,7 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function adicionarGasto() {
+    const totalGastosAtuais = document.querySelectorAll(".gasto-item").length;
+    
+    if (totalGastosAtuais >= 7) {
+      return;
+    }
+  
     const div = document.createElement("div");
+    resultado.innerHTML = "";
     div.classList.add("gasto-item");
     div.innerHTML = `
       <input type="text" placeholder="Nome do gasto" class="input-cafezinho nome-gasto" required>
@@ -34,9 +43,25 @@ document.addEventListener("DOMContentLoaded", () => {
       <button type="button" class="btn-remover-gasto">-</button>
     `;
     gastosLista.appendChild(div);
-
-    div.querySelector(".btn-remover-gasto").addEventListener("click", () => {
-      div.remove();
+  
+    const todosGastos = document.querySelectorAll(".gasto-item");
+  
+    if (todosGastos.length === 7) {
+      btnAdicionarGasto.style.display = "none";
+    }
+  
+    const botaoRemover = div.querySelector(".btn-remover-gasto");
+    botaoRemover.addEventListener("click", (e) => {
+      const todosGastos = document.querySelectorAll(".gasto-item");
+      if (todosGastos.length > 1) {
+        e.target.parentElement.remove();
+      } else {
+        resultado.innerHTML = `<p style="color:red;">Pelo menos um gasto deve ser mantido.</p>`;
+      }
+  
+      if (document.querySelectorAll(".gasto-item").length < 7) {
+        btnAdicionarGasto.style.display = "inline-block";
+      }
     });
   }
 
@@ -98,10 +123,29 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: {
           legend: {
             position: "bottom",
+            labels: {
+              generateLabels: function(chart) {
+                const original = Chart.overrides.pie.plugins.legend.labels.generateLabels(chart);
+                original.forEach(label => {
+                  const meta = chart.getDatasetMeta(0);
+                  const item = meta.data[label.index];
+                  if (item && item.hidden) {
+                    label.text = label.text + " (oculto)";
+                    label.font = {
+                      style: "line-through"
+                    };
+                  } else {
+                    label.font = {
+                      style: "normal"
+                    };
+                  }
+                });
+                return original;
+              }
+            },
             onClick: (e, legendItem, legend) => {
               const index = legendItem.index;
               const meta = legend.chart.getDatasetMeta(0);
-
               meta.data[index].hidden = !meta.data[index].hidden;
               legend.chart.update();
               recalcularEconomia(meta);
@@ -127,12 +171,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    resultado.innerHTML = `<p><strong>Total estimado no período:</strong> ${formatarValor(total)}</p>`;
+    resultado.innerHTML = `<p>Total estimado no período: <strong>${formatarValor(total)}</strong></p>`;
   }
 
   function bloquearFormulario() {
-    document.querySelectorAll(".input-cafezinho").forEach(input => input.disabled = true);
+    document.querySelectorAll(".nome-gasto, .valor-gasto, .frequencia-gasto").forEach(input => input.disabled = true);
     document.querySelectorAll(".btn-remover-gasto").forEach(btn => btn.disabled = true);
+    document.getElementById("duracao-cafezinho").disabled = true;
     btnAdicionarGasto.style.display = "none";
     form.querySelector(".btn-simular-cafezinho[type='submit']").style.display = "none";
 
@@ -145,13 +190,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-nova-simulacao").addEventListener("click", novaSimulacao);
   }
 
+  function naoRemoverPrimeiroGasto() {
+    const botaoRemover = gastosLista.querySelector(".btn-remover-gasto");
+    botaoRemover.addEventListener("click", (e) => {
+      const todosGastos = document.querySelectorAll(".gasto-item");
+      if (todosGastos.length > 1) {
+        e.target.parentElement.remove();
+      } else {
+        resultado.innerHTML = `<p style='color:red;'>Pelo menos um gasto deve ser mantido.</p>`;
+      }
+    });
+  }
+
   function novaSimulacao() {
     form.reset();
     resultado.innerHTML = "";
+    document.getElementById("duracao-cafezinho").disabled = false;
     graficoContainer.style.display = "none";
     btnAdicionarGasto.style.display = "inline-block";
     form.querySelector(".btn-simular-cafezinho[type='submit']").style.display = "inline-block";
-
+  
     gastosLista.innerHTML = `
       <div class="gasto-item">
         <input type="text" placeholder="Nome do gasto" class="input-cafezinho nome-gasto" required>
@@ -165,10 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    document.querySelector(".btn-remover-gasto").addEventListener("click", (e) => {
-      e.target.parentElement.remove();
-    });
-
+    naoRemoverPrimeiroGasto();
+  
     if (grafico) grafico.destroy();
     const novaSimulacaoBtn = document.getElementById("btn-nova-simulacao");
     if (novaSimulacaoBtn) novaSimulacaoBtn.parentElement.remove();
