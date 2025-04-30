@@ -1,0 +1,99 @@
+@import url('/style.css');
+@import url('/styles/style-nav.css');
+
+.container-peso {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  padding: 2em;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2em auto;
+}
+
+.form-peso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-peso {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.subtitulo-peso {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: var(--cor-texto-secundario);
+}
+
+.label-peso {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.input-peso {
+  text-align: center;
+  width: 65%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1em;
+}
+
+.input-peso::placeholder {
+  color: #777;
+}
+
+.btn-simular-peso {
+  margin-top: 1em;
+  width: 30%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #00c853;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-simular-peso:hover {
+  background-color: #00b140;
+}
+
+.div-btn-simular-peso {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.resultado-peso {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.resultado-peso p {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.resultado-valor-original span {
+  font-weight: bold;
+  color: var(--cor-texto-secundario);
+}
+
+.resultado-total-pago span {
+  font-weight: bold;
+  color: #00c853;
+}
+
+.resultado-juros span {
+  font-weight: bold;
+  color: #ff5252;
+}

@@ -4,18 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O Peso dos Juros</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/calculadoras/peso-juros/peso-juros.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <section class="container">
-    <div class="navigation">
-      <a href="pequenos-gastos.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
-      <a href="../index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
-      <a href="preco-cafezinho.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
+  <section class="container-peso">
+    <div class="nav-container">
+      <a href="/calculadoras/pequenos-gastos/pequenos-gastos.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg"></a>
+      <a href="/index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
+      <a href="/calculadoras/preco-cafezinho/preco-cafezinho.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg"></a>
     </div>  
-    <h1>O Peso dos Juros</h1>
-    <p>Simule uma dívida com juros e veja o quanto ela pode crescer se não for controlada a tempo.</p>
+    <h1 class="titulo-peso">O Peso dos Juros</h1>
+    <p class="subtitulo-peso">Simule quanto os juros podem impactar o valor final da sua dívida e visualize a diferença entre o valor original e o total pago.</p>
 
+    <form id="form-peso" class="form-peso">
+      <label class="label-peso" for="valor-peso">Valor da dívida (R$):</label>
+      <input class="input-peso" type="number" step="any" id="valor-peso" required>
+    
+      <label class="label-peso" for="parcelas-peso">Número de parcelas:</label>
+      <input class="input-peso" type="number" id="parcelas-peso" required>
+    
+      <label class="label-peso" for="taxa-peso">Taxa de juros mensal (%):</label>
+      <input class="input-peso" type="number" id="taxa-peso" step="0.01" required>
+    
+      <button class="btn-simular-peso">Simular</button>
+    </form>
+
+    <section class="resultado-peso" style="display: none;">
+      <div id="resultado-peso"></div>
+    </section>       
+
+    <script type="module" src="/calculadoras/peso-juros/peso-juros.js"></script>
   </section>
 </body>
 </html>
