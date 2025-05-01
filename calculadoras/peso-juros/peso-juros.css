@@ -90,10 +90,28 @@
 
 .resultado-total-pago span {
   font-weight: bold;
-  color: #00c853;
+  color: #ff5252;
 }
 
 .resultado-juros span {
   font-weight: bold;
-  color: #ff5252;
+  color: #00aeff;
+}
+
+.flex-peso {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.valores-peso {
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.grafico-peso canvas {
+  margin: 0 auto;
 }
