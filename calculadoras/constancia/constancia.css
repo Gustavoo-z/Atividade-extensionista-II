@@ -71,7 +71,7 @@
 }
   
 .resultado-constancia {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .resultado-constancia p {
@@ -93,13 +93,6 @@
 .total-com-rendimento-constancia span {
     font-weight: bold;
     color: #00c853;
-}
-
-.canvas-constancia {
-    margin-top: 2em;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
 }
 
 .grafico-container-constancia {

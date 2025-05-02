@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O Peso dos Juros</title>
   <link rel="stylesheet" href="/calculadoras/peso-juros/peso-juros.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💳</text></svg>">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -25,7 +26,7 @@
       <input class="input-peso" type="number" id="parcelas-peso" required>
     
       <label class="label-peso" for="taxa-peso">Taxa de juros mensal (%):</label>
-      <input class="input-peso" type="number" id="taxa-peso" step="0.01" required>
+      <input class="input-peso" type="number" id="taxa-peso" min="0.1" max="10" step="0.01" placeholder="Digite uma taxa entre 0,1% e 10%" title="Digite uma taxa entre 0% e 2%" required>
     
       <button class="btn-simular-peso">Simular</button>
     </form>

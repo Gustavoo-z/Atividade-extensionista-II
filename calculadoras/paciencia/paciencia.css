@@ -35,6 +35,7 @@
     margin: 10px 0 5px;
     font-weight: bold;
     margin-bottom: 0.5em;
+    text-align: center;
 }
 
 .input-paciencia {
@@ -47,7 +48,7 @@
 }
 
 #valor-parcelado {
-    width: 347px;
+    width: 327px;
 }
 
 .campo-parcelado-linha {

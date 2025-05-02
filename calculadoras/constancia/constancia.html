@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Constância Vale Ouro</title>
   <link rel="stylesheet" href="/calculadoras/constancia/constancia.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
 </head>
 <body>    
   <section class="container-constancia">
@@ -24,7 +25,7 @@
         <input class="input-constancia" type="number" step="any" id="duracao-constancia" required>
   
         <label class="label-constancia" for="taxa-constancia">Taxa de rendimento mensal (%):</label>
-        <input class="input-constancia" type="number" id="taxa-constancia" value="0.8" step="0.01" required>
+        <input class="input-constancia" type="number" id="taxa-constancia" min="0" max="2" step="0.01" value="0.8" placeholder="Digite uma taxa entre 0% e 2%" title="Digite uma taxa entre 0% e 2%" required>
   
         <button id="btn-simular-constancia" class="btn-simular-constancia" type="submit">Simular</button>
       </form>

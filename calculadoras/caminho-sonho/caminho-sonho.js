@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const economiEmMeses = diferenca * meses;
 
       resultado.innerHTML += `
-        <p class="resultado-caminho-2">Mensalmente sobraria <strong>${formatarValor(diferenca)}</strong> e no total dos <strong>${meses}</strong> meses sobraria <strong>${formatarValor(economiEmMeses)}</strong>.</p>`;
+        <p class="resultado-caminho-2">Mensalmente uma economia <strong>${formatarValor(diferenca)}</strong> e no total dos <strong>${meses}</strong> meses você economizaria <strong>${formatarValor(economiEmMeses)}</strong>.</p>`;
       }
 
       resultado.innerHTML += `

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pequenos Gastos, Grandes Impactos</title>
   <link rel="stylesheet" href="/calculadoras/pequenos-gastos/pequenos-gastos.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📉</text></svg>">
 </head>
 <body>
   <section class="container-pequenos">
@@ -35,7 +36,7 @@
       </select>
 
       <label class="label-pequenos" for="taxa-pequenos">Taxa de rendimento mensal (%):</label>
-      <input class="input-pequenos" type="number" id="taxa-pequenos" value="0.8" step="0.01">
+      <input class="input-pequenos" type="number" id="taxa-pequenos" value="0.8" min="0" max="2" step="0.01" placeholder="Digite uma taxa entre 0% e 2%" title="Digite uma taxa entre 0% e 2%" required>
 
       <button class="btn-simular-pequenos">Simular</button>
     </form>

@@ -68,12 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resultado.style.display = "block";
     resultado.innerHTML = `
-      <p>Valor do produto à vista: <span>${formatarValor(valorVista)}</span>.</p>
-      <p>Parcelamento: <span>${parcelas}</span>x de <span>${formatarValor(valorParcela)}</span> (total de <span>${formatarValor(valorParcelado)}</span>).</p>
-      <p>Aplicando <strong>${formatarValor(valorParcela)}</strong> por <strong>${parcelas}</strong> meses com rendimento você juntaria <strong>${formatarValor(valorFinal)}</strong>.</p>
+      <p>Valor do produto à vista: <span style="color: #81d4fa;">${formatarValor(valorVista)}</span>.</p>
+      <p>Parcelamento: <span>${parcelas}</span>x de <span>${formatarValor(valorParcela)}</span> (total de <span style="color: #f44336;">${formatarValor(valorParcelado)}</span>).</p>
+      <p>Aplicando <strong>${formatarValor(valorParcela)}</strong> por <strong>${parcelas}</strong> meses com rendimento você juntaria <strong style="color: #00c853;">${formatarValor(valorFinal)}</strong>.</p>
       <p class="conclusao-paciencia">
         ${diferenca > 0
-          ? `Você demoraria para ter o produto, porém aplicando teria um lucro de <span>${formatarValor(diferenca)}</span>.`
+          ? `Você demoraria para ter o produto, porém aplicando teria um lucro de <span style="color: #00c853;">${formatarValor(diferenca)}</span>.`
           : `Parcelar resultaria em um custo menor neste caso.`}
       </p>
     `;

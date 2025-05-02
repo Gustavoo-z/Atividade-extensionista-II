@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caminho até o Sonho</title>
   <link rel="stylesheet" href="/calculadoras/caminho-sonho/caminho-sonho.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛤️</text></svg>">
 </head>
 <body>
   <section class="container-caminho">
@@ -23,9 +24,9 @@
       <input class="input-caminho" type="number" step="any" id="meses-caminho" required>
     
       <label class="label-caminho" for="taxa-caminho">Taxa de rendimento mensal (%):</label>
-      <input class="input-caminho" type="number" id="taxa-caminho" value="0.8" step="0.01">
+      <input class="input-caminho" type="number" id="taxa-caminho" value="0.8" min="0" max="2" step="0.01" placeholder="Digite uma taxa entre 0% e 2%" title="Digite uma taxa entre 0% e 2%" required>
     
-      <button class="btn-simular-caminho">Calcular</button>
+      <button class="btn-simular-caminho">Simular</button>
     </form>
     <section class="resultado-caminho">
       <div style="display: none;" id="resultado-caminho"></div>

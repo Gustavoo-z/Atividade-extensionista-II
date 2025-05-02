@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Paciência Compensa?</title>
   <link rel="stylesheet" href="/calculadoras/paciencia/paciencia.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>">
 </head>
 <body>
   <section class="container-paciencia">
@@ -27,14 +28,19 @@
       <label class="label-paciencia" for="valor-vista">Valor do produto à vista (R$):</label>
       <input class="input-paciencia" type="number" step="any" id="valor-vista" required>
     
-      <label class="label-paciencia" for="valor-parcelado">Valor total parcelado (R$):</label>
       <div class="campo-parcelado-linha">
-        <input class="input-paciencia" type="number" step="any" id="valor-parcelado" required>
-        <input class="input-paciencia input-pequeno" type="number" id="qtd-parcelas" min="1" max="48" placeholder="Parcelas" required>
-      </div>
+        <div class="grupo-input">
+          <label class="label-paciencia" for="valor-parcelado">Valor total parcelado (R$):</label>
+          <input class="input-paciencia" type="number" step="any" id="valor-parcelado" required>
+        </div>
+        <div class="grupo-input pequeno">
+          <label class="label-paciencia" for="qtd-parcelas">Parcelas:</label>
+          <input class="input-paciencia input-pequeno" type="number" id="qtd-parcelas" min="1" max="48" title="Digite entre 1 a 48 parcelas" placeholder="1 a 48" required>
+        </div>
+      </div>      
     
       <label class="label-paciencia" for="taxa-paciencia">Taxa de rendimento mensal (%):</label>
-      <input class="input-paciencia" type="number" id="taxa-paciencia" value="0.8" step="0.01">
+      <input class="input-paciencia" type="number" id="taxa-paciencia" value="0.8" min="0" max="2" step="0.01" placeholder="Digite uma taxa entre 0% e 2%" title="Digite uma taxa entre 0% e 2%" required>
     
       <button class="btn-simular-paciencia">Simular</button>
     </form>

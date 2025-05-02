@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    resultado.innerHTML = `<p>Total estimado no período: <strong>${formatarValor(total)}</strong></p>`;
+    resultado.innerHTML = `<p>Gasto estimado no período de ${duracaoAtual} meses: <strong>${formatarValor(total)}</strong></p>`;
   }
 
   function bloquearFormulario() {
