@@ -21,14 +21,16 @@
   .botoes-calculadoras{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    justify-items: center;
     gap: 20px;
+    margin: 0 30px;
   }
   
   .card-calculadoras {
     position: relative;
     background-color: var(--cor-texto);
     color: var(--cor-card);
-    width: 280px;
+    width: 240px;
     height: 60px;
     border-radius: 12px;
     transition: 0.3s;
@@ -91,3 +93,119 @@
     color: #ccc;
     text-decoration: none;
   }
+
+@media (max-width: 942px) {
+  .container-calculadoras {
+    margin: 40px 60px;
+  }
+
+  .botoes-calculadoras {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    justify-items: center;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-calculadoras {
+    margin: 40px 80px;
+  }
+
+  .botoes-calculadoras {
+    grid-template-columns: repeat(1, minmax(240px, 1fr));
+    justify-items: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .container-calculadoras {
+    margin: 40px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-calculadoras {
+    margin: 40px 35px;
+  }
+}
+
+@media (max-width: 514px) {
+  .container-calculadoras {
+    margin: 30px 20px;
+  }
+}
+
+@media (max-width: 484px) {
+  .container-calculadoras {
+    margin: 18px 13px;
+  }
+
+  .titulo-calculadoras {
+    font-size: 24px;
+  }
+
+  .subtitulo-calculadoras {
+    font-size: 18px;
+    margin: 18px 30px 30px 30px;
+  }
+
+  .card-calculadoras {
+    width: 230px;
+    height: 55px;
+  }
+
+  .card-calculadoras a {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container-calculadoras {
+    margin: 15px 10px;
+  }
+
+  .titulo-calculadoras {
+    font-size: 22px;
+  }
+
+  .subtitulo-calculadoras {
+    font-size: 16px;
+    margin: 18px 30px 30px 30px;
+  }
+
+  .card-calculadoras {
+    width: 230px;
+    height: 55px;
+  }
+
+  .card-calculadoras a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 350px) {
+  .container-calculadoras {
+    margin: 12px 8px;
+  }
+
+  .botoes-calculadoras {
+    margin: 0;
+  }
+
+  .titulo-calculadoras {
+    font-size: 20px;
+  }
+
+  .subtitulo-calculadoras {
+    font-size: 14px;
+  }
+
+  .card-calculadoras {
+    width: 220px;
+    height: 50px;
+  }
+
+  .card-calculadoras a {
+    font-size: 13px;
+  }
+}
