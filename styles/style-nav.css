@@ -42,10 +42,10 @@
   }
 
   .home-icon img {
-    width: 80%;
-    height: 25px;
-    transition: transform 0.3s;
-  }
+    width: 25px;
+    height: auto;
+    max-height: 25px;
+  }  
   
   .home-icon:hover {
     background-color: #666;

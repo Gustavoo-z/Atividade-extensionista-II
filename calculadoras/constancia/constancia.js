@@ -47,15 +47,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }    
 
     resultado.innerHTML = `
-      <p class="total-investido-constancia"><strong>Total investido:</strong>&nbsp; <span>${formatarValor(totalSemRendimento)}</span></p>
-      <p class="total-com-rendimento-constancia"><strong>Total com rendimento:</strong>&nbsp; <span>${formatarValor(totalComRendimento)}</span></p>
+      <p class="total-investido-constancia"><strong>Total investido:</strong> <span>${formatarValor(totalSemRendimento)}</span></p>
+      <p class="total-com-rendimento-constancia"><strong>Total com rendimento:</strong> <span>${formatarValor(totalComRendimento)}</span></p>
     `;
 
     if (totalComRendimento > totalSemRendimento) {
       const diferenca = totalComRendimento - totalSemRendimento;
       resultado.innerHTML += `
         <p class="resultado-constancia">
-          Ao investir <span>&nbsp;${formatarValor(aporte)}&nbsp;</span> por <span>&nbsp;${meses}&nbsp;</span> meses com uma taxa de <span>&nbsp;${taxa * 100}%</span>, seu dinheiro rendeu <span style="color: #00c853;">&nbsp;${formatarValor(diferenca)}</span>.
+          Ao investir <span>${formatarValor(aporte)}</span> por <span>${meses}</span> meses com uma taxa de <span>${taxa * 100}%</span>, seu dinheiro rendeu <span style="color: #00c853;">${formatarValor(diferenca)}</span>.
         </p>`;
     }
 

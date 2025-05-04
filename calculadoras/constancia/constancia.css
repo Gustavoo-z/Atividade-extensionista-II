@@ -46,6 +46,11 @@
     margin-bottom: 1em;
 }
 
+input:disabled, select:disabled, textarea:disabled {
+    color: #fff !important;
+    background-color: #494949 !important;
+}
+
 .btn-simular-constancia {
     margin-top: 1em;
     width: 30%;
@@ -75,9 +80,6 @@
 }
 
 .resultado-constancia p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
@@ -109,3 +111,67 @@
     height: auto !important;
     margin: 0;
   }
+
+@media (max-width: 942px) {
+    .container-constancia {
+      margin: 40px 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-constancia {
+        margin: 40px 80px;
+    }
+
+    .grafico-container-constancia {
+        padding: 4px;
+    }
+}
+
+@media (max-width: 680px) {
+    .container-constancia {
+      margin: 40px 40px;
+    }
+}
+  
+  @media (max-width: 600px) {
+    .container-constancia {
+      margin: 40px 35px;
+    }
+
+    .btn-simular-constancia {
+      width: 40%;
+    }
+}
+  
+@media (max-width: 514px) {
+    .container-constancia {
+      margin: 30px 20px;
+    }
+}
+  
+@media (max-width: 484px) {
+    .container-constancia {
+      margin: 18px 13px;
+    }
+}
+  
+@media (max-width: 400px) {
+    .container-constancia {
+      margin: 15px 10px;
+    }
+
+    .btn-simular-constancia {
+        width: 46%;
+      }
+}
+  
+@media (max-width: 350px) {
+    .container-constancia {
+      margin: 12px 8px;
+    }
+
+    .btn-simular-constancia {
+        width: 65%;
+      }
+}
