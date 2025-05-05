@@ -30,6 +30,15 @@
   color: var(--cor-texto-secundario);
 }
 
+.item-cafezinho {
+  display: flex;
+}
+
+.item-cafezinho select {
+  width: 100%;
+  padding: 10px 20px;
+}
+
 .label-cafezinho {
   display: block;
   margin: 10px 0 5px;
@@ -53,7 +62,8 @@
 }
 
 .gasto-item {
-  width: 475px;
+  max-width: 475px;
+  width: 100%;
   text-align: center;
   display: flex;
   gap: 0.5rem;
@@ -67,6 +77,7 @@
   border-radius: 8px;
   background-color: white;
   text-align: left;
+  padding: 10px 20px;
 }
 
 .nome-gasto, .valor-gasto {
@@ -89,18 +100,18 @@
 }
 
 .input-cafezinho[disabled] {
-  background-color: #333;
-  color: white;
+  background-color: #222;
+  color: #888;
 }
 
 select.input-cafezinho[disabled] {
-  background-color: #444;
-  color: white;
+  background-color: #2e2e2e;
+  color: #888;
 }
 
 .btn-remover-gasto:disabled {
-  background-color: #444;
-  color: #999;
+  background-color: #2e2e2e;
+  color: #888;
   cursor: default;
 }
 
@@ -143,21 +154,13 @@ select.input-cafezinho[disabled] {
   margin-bottom: 1.5rem;
 }
 
-.div-btn-simular-cafezinho button {
-  margin-top: 1em;
-  width: 30%;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #00c853;
-  color: #fff;
-  font-weight: bold;
-   border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
 .div-btn-simular-cafezinho button:hover {
   background-color: #218838;
+}
+
+input:disabled, textarea:disabled {
+  color: #fff !important;
+  background-color: #494949 !important;
 }
 
 #resultado-cafezinho {
@@ -175,4 +178,64 @@ select.input-cafezinho[disabled] {
   max-width: 400px;
   max-height: 400px;
   margin: auto;
+}
+
+@media (max-width: 942px) {
+  .container-cafezinho {
+    margin: 40px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-cafezinho {
+      margin: 40px 80px;
+  }
+}
+
+@media (max-width: 680px) {
+  .container-cafezinho {
+    margin: 40px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-cafezinho {
+    margin: 40px 35px;
+  }
+
+  .btn-simular-cafezinho {
+    width: 40%;
+  }
+}
+
+@media (max-width: 514px) {
+  .container-cafezinho {
+    margin: 30px 20px;
+  }
+}
+
+@media (max-width: 484px) {
+  .container-cafezinho {
+    margin: 18px 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container-cafezinho {
+    margin: 15px 10px;
+  }
+
+  .btn-simular-cafezinho {
+      width: 46%;
+    }
+}
+
+@media (max-width: 350px) {
+  .container-cafezinho {
+    margin: 12px 8px;
+  }
+
+  .btn-simular-cafezinho {
+      width: 65%;
+    }
 }

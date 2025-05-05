@@ -5,7 +5,6 @@
     background-color: var(--cor-secundaria);
     color: #fff;
     padding: 2em;
-    padding-bottom: 0.5em;
     border-radius: 12px;
     max-width: 700px;
     margin: 2em auto;
@@ -71,8 +70,6 @@ input:disabled, select:disabled, textarea:disabled {
 .div-btn-simular-constancia {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
 }
   
 .resultado-constancia {

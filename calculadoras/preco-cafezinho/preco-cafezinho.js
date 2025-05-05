@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resultado.innerHTML = "";
     div.classList.add("gasto-item");
     div.innerHTML = `
-      <input type="text" placeholder="Nome do gasto" class="input-cafezinho nome-gasto" required>
+      <input type="text" placeholder="Gasto" class="input-cafezinho nome-gasto" required>
       <input type="number" placeholder="Valor (R$)" class="input-cafezinho valor-gasto" required>
       <select class="input-cafezinho frequencia-gasto">
         <option value="diario">Diário</option>
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     gastosLista.innerHTML = `
       <div class="gasto-item">
-        <input type="text" placeholder="Nome do gasto" class="input-cafezinho nome-gasto" required>
+        <input type="text" placeholder="Gasto" class="input-cafezinho nome-gasto" required>
         <input type="number" placeholder="Valor (R$)" class="input-cafezinho valor-gasto" required>
         <select class="input-cafezinho frequencia-gasto">
           <option value="diario">Diário</option>

@@ -68,6 +68,11 @@
   margin-top: 1rem;
 }
 
+input:disabled, select:disabled, textarea:disabled {
+  color: #fff !important;
+  background-color: #494949 !important;
+}
+
 .resultado-caminho-2 {
   margin-top: 1rem;
 }
@@ -86,4 +91,64 @@
 .resultado-com-rendimento span{
     font-weight: bold;
     color: #00c853;
+}
+
+@media (max-width: 942px) {
+  .container-caminho {
+    margin: 40px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-caminho {
+      margin: 40px 80px;
+  }
+}
+
+@media (max-width: 680px) {
+  .container-caminho {
+    margin: 40px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-caminho {
+    margin: 40px 35px;
+  }
+
+  .btn-simular-caminho {
+    width: 40%;
+  }
+}
+
+@media (max-width: 514px) {
+  .container-caminho {
+    margin: 30px 20px;
+  }
+}
+
+@media (max-width: 484px) {
+  .container-caminho {
+    margin: 18px 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container-caminho {
+    margin: 15px 10px;
+  }
+
+  .btn-simular-caminho {
+      width: 46%;
+    }
+}
+
+@media (max-width: 350px) {
+  .container-caminho {
+    margin: 12px 8px;
+  }
+
+  .btn-simular-caminho {
+      width: 65%;
+    }
 }

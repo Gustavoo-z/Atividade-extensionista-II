@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    resultado.style.display = "block";
+
     const aporteInput = document.getElementById("investimento-constancia");
     const mesesInput = document.getElementById("duracao-constancia");
     const taxaInput = document.getElementById("taxa-constancia");
@@ -76,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btn-nova-simulacao").addEventListener("click", () => {
       form.reset();
       resultado.innerHTML = "";
+      resultado.style.display = "none";
       graficoContainer.style.display = "none";
       botaoSimular.style.display = "block";
       aporteInput.disabled = false;

@@ -72,6 +72,11 @@
   margin-top: 1rem;
 }
 
+input:disabled, select:disabled, textarea:disabled {
+  color: #fff !important;
+  background-color: #494949 !important;
+}
+
 .resultado-peso {
   margin-top: 1.5rem;
   text-align: center;
@@ -114,4 +119,64 @@
 
 .grafico-peso canvas {
   margin: 0 auto;
+}
+
+@media (max-width: 942px) {
+  .container-peso {
+    margin: 40px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-peso {
+      margin: 40px 80px;
+  }
+}
+
+@media (max-width: 680px) {
+  .container-peso {
+    margin: 40px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-peso {
+    margin: 40px 35px;
+  }
+
+  .btn-simular-peso {
+    width: 40%;
+  }
+}
+
+@media (max-width: 514px) {
+  .container-peso {
+    margin: 30px 20px;
+  }
+}
+
+@media (max-width: 484px) {
+  .container-peso {
+    margin: 18px 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container-peso {
+    margin: 15px 10px;
+  }
+
+  .btn-simular-peso {
+      width: 46%;
+    }
+}
+
+@media (max-width: 350px) {
+  .container-peso {
+    margin: 12px 8px;
+  }
+
+  .btn-simular-peso {
+      width: 65%;
+    }
 }
