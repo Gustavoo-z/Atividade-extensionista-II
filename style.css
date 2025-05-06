@@ -1,4 +1,4 @@
-@import url('/styles/style-index.css');
+@import url("/styles/style-index.css");
 
 :root {
   --cor-fundo: #111;
@@ -8,12 +8,12 @@
   --cor-borda-hover: #666;
   --cor-texto-secundario: #ccc;
   --cor-card: #000;
-  --fonte-principal: 'Arial', sans-serif;
+  --fonte-principal: "Arial", sans-serif;
 }
 
 body {
-    margin: 0;
-    background-color: var(--cor-fundo);
-    font-family: var(--fonte-principal);
-    color: var(--cor-texto);
+  margin: 0;
+  background-color: var(--cor-fundo);
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto);
 }

@@ -1,54 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O Preço do Cafezinho</title>
-  <link rel="stylesheet" href="/calculadoras/preco-cafezinho/preco-cafezinho.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💸</text></svg>">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-  <section class="container-cafezinho">
-    <div class="nav-container">
-      <a href="/calculadoras/peso-juros/peso-juros.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg" alt="Anterior"></a>
-      <a href="/index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
-      <a href="/calculadoras/constancia/constancia.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg" alt="Próximo"></a>
-    </div>
-
-    <h1 class="titulo-cafezinho">O Preço do Cafezinho</h1>
-    <p class="subtitulo-cafezinho">Adicione até 7 gastos para visualizar como eles impactam seu orçamento.</p>
-
-    <form id="form-cafezinho" class="form-cafezinho">
-      <div id="gastos-lista">
-        <div class="gasto-item">
-          <input type="text" placeholder="Gasto" class="input-cafezinho nome-gasto" required>
-          <input type="number" placeholder="Valor (R$)" class="input-cafezinho valor-gasto" required>
-          <select class="input-cafezinho frequencia-gasto" required>
-            <option value="diario">Diário</option>
-            <option value="semanal">Semanal</option>
-            <option value="mensal">Mensal</option>
-          </select>
-          <button type="button" class="btn-remover-gasto">-</button>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Preço do Cafezinho</title>
+    <link
+      rel="stylesheet"
+      href="/calculadoras/preco-cafezinho/preco-cafezinho.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💸</text></svg>"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <section class="container-cafezinho">
+      <div class="nav-container">
+        <a
+          href="/calculadoras/peso-juros/peso-juros.html"
+          class="nav-arrow left"
+          ><img src="/img/arrow-left-solid.svg" alt="Anterior"
+        /></a>
+        <a href="/index.html" class="home-icon"
+          ><img src="/img/house-solid.svg" alt="Início"
+        /></a>
+        <a
+          href="/calculadoras/constancia/constancia.html"
+          class="nav-arrow right"
+          ><img src="/img/arrow-right-solid.svg" alt="Próximo"
+        /></a>
       </div>
-    
-      <button type="button" id="btn-adicionar-gasto" class="btn-simular-cafezinho">+ Adicionar Gasto</button>
-    
-      <label for="duracao-cafezinho" class="label-cafezinho">Duração (em meses):</label>
-      <input type="number" id="duracao-cafezinho" class="input-cafezinho" required>
-    
-      <button type="submit" class="btn-simular-cafezinho">Simular</button>
-    </form>
 
-    <div id="resultado-cafezinho"></div>
+      <h1 class="titulo-cafezinho">O Preço do Cafezinho</h1>
+      <p class="subtitulo-cafezinho">
+        Adicione até 7 gastos para visualizar como eles impactam seu orçamento.
+      </p>
 
-    <div id="graficoContainer-cafezinho" style="display: none;">
-      <canvas id="grafico-cafezinho"></canvas>
-    </div>
+      <form id="form-cafezinho" class="form-cafezinho">
+        <div id="gastos-lista">
+          <div class="gasto-item">
+            <input
+              type="text"
+              placeholder="Gasto"
+              class="input-cafezinho nome-gasto"
+              required
+            />
+            <input
+              type="number"
+              placeholder="Valor (R$)"
+              class="input-cafezinho valor-gasto"
+              required
+            />
+            <select class="input-cafezinho frequencia-gasto" required>
+              <option value="diario">Diário</option>
+              <option value="semanal">Semanal</option>
+              <option value="mensal">Mensal</option>
+            </select>
+            <button type="button" class="btn-remover-gasto">-</button>
+          </div>
+        </div>
 
-  </section>
+        <button
+          type="button"
+          id="btn-adicionar-gasto"
+          class="btn-simular-cafezinho"
+        >
+          + Adicionar Gasto
+        </button>
 
-  <script type="module" src="/calculadoras/preco-cafezinho/preco-cafezinho.js"></script>
-</body>
+        <label for="duracao-cafezinho" class="label-cafezinho"
+          >Duração (em meses):</label
+        >
+        <input
+          type="number"
+          id="duracao-cafezinho"
+          class="input-cafezinho"
+          required
+        />
+
+        <button type="submit" class="btn-simular-cafezinho">Simular</button>
+      </form>
+
+      <div id="resultado-cafezinho"></div>
+
+      <div id="graficoContainer-cafezinho" style="display: none">
+        <canvas id="grafico-cafezinho"></canvas>
+      </div>
+    </section>
+
+    <script
+      type="module"
+      src="/calculadoras/preco-cafezinho/preco-cafezinho.js"
+    ></script>
+  </body>
 </html>

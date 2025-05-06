@@ -1,6 +1,6 @@
-@import url('/style.css');
-@import url('/styles/style-nav.css');
-  
+@import url("/style.css");
+@import url("/styles/style-nav.css");
+
 .container-caminho {
   background-color: var(--cor-secundaria);
   color: #fff;
@@ -68,7 +68,9 @@
   margin-top: 1rem;
 }
 
-input:disabled, select:disabled, textarea:disabled {
+input:disabled,
+select:disabled,
+textarea:disabled {
   color: #fff !important;
   background-color: #494949 !important;
 }
@@ -84,13 +86,13 @@ input:disabled, select:disabled, textarea:disabled {
 }
 
 .resultado-sem-rendimento span {
-    font-weight: bold;
-    color: var(--cor-texto-secundario);
+  font-weight: bold;
+  color: var(--cor-texto-secundario);
 }
 
-.resultado-com-rendimento span{
-    font-weight: bold;
-    color: #00c853;
+.resultado-com-rendimento span {
+  font-weight: bold;
+  color: #00c853;
 }
 
 @media (max-width: 942px) {
@@ -101,7 +103,7 @@ input:disabled, select:disabled, textarea:disabled {
 
 @media (max-width: 768px) {
   .container-caminho {
-      margin: 40px 80px;
+    margin: 40px 80px;
   }
 }
 
@@ -139,8 +141,8 @@ input:disabled, select:disabled, textarea:disabled {
   }
 
   .btn-simular-caminho {
-      width: 46%;
-    }
+    width: 46%;
+  }
 }
 
 @media (max-width: 350px) {
@@ -149,6 +151,6 @@ input:disabled, select:disabled, textarea:disabled {
   }
 
   .btn-simular-caminho {
-      width: 65%;
-    }
+    width: 65%;
+  }
 }

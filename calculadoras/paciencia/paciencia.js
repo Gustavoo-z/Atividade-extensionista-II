@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-paciencia");
   const resultado = document.getElementById("resultado-paciencia");
   const canvas = document.getElementById("grafico-paciencia");
-  const graficoContainer = document.getElementById("graficoContainer-paciencia");
+  const graficoContainer = document.getElementById(
+    "graficoContainer-paciencia",
+  );
 
   let grafico;
 
@@ -13,18 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (grafico) grafico.destroy();
     graficoContainer.style.display = "none";
-    
+
     resultado.style.display = "block";
     resultado.innerHTML = "";
-    const btnNovaSimulacaoExistente = document.getElementById("btn-nova-simulacao");
+    const btnNovaSimulacaoExistente =
+      document.getElementById("btn-nova-simulacao");
     if (btnNovaSimulacaoExistente) {
       btnNovaSimulacaoExistente.parentElement.remove();
     }
-  
+
     const valorVista = parseFloat(document.getElementById("valor-vista").value);
-    const valorParcelado = parseFloat(document.getElementById("valor-parcelado").value);
+    const valorParcelado = parseFloat(
+      document.getElementById("valor-parcelado").value,
+    );
     const parcelas = parseInt(document.getElementById("qtd-parcelas").value);
-    const taxa = parseFloat(document.getElementById("taxa-paciencia").value) / 100;
+    const taxa =
+      parseFloat(document.getElementById("taxa-paciencia").value) / 100;
 
     const valorVistaInput = document.getElementById("valor-vista");
     const valorParceladoInput = document.getElementById("valor-parcelado");
@@ -35,7 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (
       valorVista <= 0 ||
       valorParcelado <= 0 ||
-      isNaN(parcelas) || parcelas <= 0 ||
+      isNaN(parcelas) ||
+      parcelas <= 0 ||
       isNaN(taxa)
     ) {
       resultado.innerHTML = `<p style='color:red;'>Preencha todos os campos corretamente.</p>`;
@@ -72,9 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>Parcelamento: <span>${parcelas}</span>x de <span>${formatarValor(valorParcela)}</span> (total de <span style="color: #f44336;">${formatarValor(valorParcelado)}</span>).</p>
       <p>Aplicando <strong>${formatarValor(valorParcela)}</strong> por <strong>${parcelas}</strong> meses com rendimento você juntaria <strong style="color: #00c853;">${formatarValor(valorFinal)}</strong>.</p>
       <p class="conclusao-paciencia">
-        ${diferenca > 0
-          ? `Você demoraria para ter o produto, porém aplicando teria um lucro de <span style="color: #00c853;">${formatarValor(diferenca)}</span>.`
-          : `Parcelar resultaria em um custo menor neste caso.`}
+        ${
+          diferenca > 0
+            ? `Você demoraria para ter o produto, porém aplicando teria um lucro de <span style="color: #00c853;">${formatarValor(diferenca)}</span>.`
+            : `Parcelar resultaria em um custo menor neste caso.`
+        }
       </p>
     `;
 
@@ -110,9 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           tooltip: {
             callbacks: {
-              label: ctx => `${ctx.dataset.label}: ${formatarValor(ctx.raw)}`
-            }
-          }
+              label: (ctx) => `${ctx.dataset.label}: ${formatarValor(ctx.raw)}`,
+            },
+          },
         },
         scales: {
           x: { stacked: true },
@@ -128,32 +137,37 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    graficoContainer.insertAdjacentHTML('afterend', `
+    graficoContainer.insertAdjacentHTML(
+      "afterend",
+      `
       <div class="div-btn-simular-paciencia">
         <button id="btn-nova-simulacao" class="btn-simular-paciencia">Nova Simulação</button>
-      </div>`);
+      </div>`,
+    );
 
-    document.getElementById("btn-nova-simulacao").addEventListener("click", () => {
-      form.reset();
-      resultado.innerHTML = "";
-      graficoContainer.style.display = "none";
-      botaoSimular.style.display = "block";
+    document
+      .getElementById("btn-nova-simulacao")
+      .addEventListener("click", () => {
+        form.reset();
+        resultado.innerHTML = "";
+        graficoContainer.style.display = "none";
+        botaoSimular.style.display = "block";
 
-      valorVistaInput.disabled = false;
-      valorVistaInput.style.color = "#000";
-      valorParceladoInput.disabled = false;
-      valorParceladoInput.style.color = "#000";
-      parcelasInput.disabled = false;
-      parcelasInput.style.color = "#000";
-      taxaInput.disabled = false;
-      taxaInput.style.color = "#000";
+        valorVistaInput.disabled = false;
+        valorVistaInput.style.color = "#000";
+        valorParceladoInput.disabled = false;
+        valorParceladoInput.style.color = "#000";
+        parcelasInput.disabled = false;
+        parcelasInput.style.color = "#000";
+        taxaInput.disabled = false;
+        taxaInput.style.color = "#000";
 
-      if (grafico) grafico.destroy();
+        if (grafico) grafico.destroy();
 
-      const btnNovaSimulacao = document.getElementById("btn-nova-simulacao");
-      if (btnNovaSimulacao) {
-        btnNovaSimulacao.parentElement.remove();
-      }
-    });
+        const btnNovaSimulacao = document.getElementById("btn-nova-simulacao");
+        if (btnNovaSimulacao) {
+          btnNovaSimulacao.parentElement.remove();
+        }
+      });
   });
 });

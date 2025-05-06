@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-cafezinho");
   const gastosLista = document.getElementById("gastos-lista");
   const resultado = document.getElementById("resultado-cafezinho");
-  const graficoContainer = document.getElementById("graficoContainer-cafezinho");
+  const graficoContainer = document.getElementById(
+    "graficoContainer-cafezinho",
+  );
   const canvas = document.getElementById("grafico-cafezinho");
   const btnAdicionarGasto = document.getElementById("btn-adicionar-gasto");
 
@@ -24,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function adicionarGasto() {
     const totalGastosAtuais = document.querySelectorAll(".gasto-item").length;
-    
+
     if (totalGastosAtuais >= 7) {
       return;
     }
-  
+
     const div = document.createElement("div");
     resultado.innerHTML = "";
     div.classList.add("gasto-item");
@@ -43,13 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <button type="button" class="btn-remover-gasto">-</button>
     `;
     gastosLista.appendChild(div);
-  
+
     const todosGastos = document.querySelectorAll(".gasto-item");
-  
+
     if (todosGastos.length === 7) {
       btnAdicionarGasto.style.display = "none";
     }
-  
+
     const botaoRemover = div.querySelector(".btn-remover-gasto");
     botaoRemover.addEventListener("click", (e) => {
       const todosGastos = document.querySelectorAll(".gasto-item");
@@ -58,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         resultado.innerHTML = `<p style="color:red;">Pelo menos um gasto deve ser mantido.</p>`;
       }
-  
+
       if (document.querySelectorAll(".gasto-item").length < 7) {
         btnAdicionarGasto.style.display = "inline-block";
       }
@@ -72,10 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nomes = Array.from(document.querySelectorAll(".nome-gasto"));
     const valores = Array.from(document.querySelectorAll(".valor-gasto"));
-    const frequencias = Array.from(document.querySelectorAll(".frequencia-gasto"));
+    const frequencias = Array.from(
+      document.querySelectorAll(".frequencia-gasto"),
+    );
     duracaoAtual = parseInt(document.getElementById("duracao-cafezinho").value);
 
-    if (nomes.length === 0 || valores.length === 0 || frequencias.length === 0 || isNaN(duracaoAtual) || duracaoAtual <= 0) {
+    if (
+      nomes.length === 0 ||
+      valores.length === 0 ||
+      frequencias.length === 0 ||
+      isNaN(duracaoAtual) ||
+      duracaoAtual <= 0
+    ) {
       resultado.innerHTML = `<p style='color:red;'>Preencha todos os campos corretamente.</p>`;
       return;
     }
@@ -111,12 +121,20 @@ document.addEventListener("DOMContentLoaded", () => {
       type: "pie",
       data: {
         labels: labels,
-        datasets: [{
-          data: dados,
-          backgroundColor: [
-            "#ff6384", "#36a2eb", "#ffcd56", "#4bc0c0", "#9966ff", "#00c853", "#8e24aa"
-          ],
-        }],
+        datasets: [
+          {
+            data: dados,
+            backgroundColor: [
+              "#ff6384",
+              "#36a2eb",
+              "#ffcd56",
+              "#4bc0c0",
+              "#9966ff",
+              "#00c853",
+              "#8e24aa",
+            ],
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -124,24 +142,27 @@ document.addEventListener("DOMContentLoaded", () => {
           legend: {
             position: "bottom",
             labels: {
-              generateLabels: function(chart) {
-                const original = Chart.overrides.pie.plugins.legend.labels.generateLabels(chart);
-                original.forEach(label => {
+              generateLabels: function (chart) {
+                const original =
+                  Chart.overrides.pie.plugins.legend.labels.generateLabels(
+                    chart,
+                  );
+                original.forEach((label) => {
                   const meta = chart.getDatasetMeta(0);
                   const item = meta.data[label.index];
                   if (item && item.hidden) {
                     label.text = label.text + " (oculto)";
                     label.font = {
-                      style: "line-through"
+                      style: "line-through",
                     };
                   } else {
                     label.font = {
-                      style: "normal"
+                      style: "normal",
                     };
                   }
                 });
                 return original;
-              }
+              },
             },
             onClick: (e, legendItem, legend) => {
               const index = legendItem.index;
@@ -149,15 +170,15 @@ document.addEventListener("DOMContentLoaded", () => {
               meta.data[index].hidden = !meta.data[index].hidden;
               legend.chart.update();
               recalcularEconomia(meta);
-            }
+            },
           },
           tooltip: {
             callbacks: {
-              label: ctx => `${ctx.label}: ${formatarValor(ctx.raw)}`
-            }
-          }
-        }
-      }
+              label: (ctx) => `${ctx.label}: ${formatarValor(ctx.raw)}`,
+            },
+          },
+        },
+      },
     });
 
     recalcularEconomia(grafico.getDatasetMeta(0));
@@ -175,19 +196,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function bloquearFormulario() {
-    document.querySelectorAll(".nome-gasto, .valor-gasto, .frequencia-gasto").forEach(input => input.disabled = true);
-    document.querySelectorAll(".btn-remover-gasto").forEach(btn => btn.disabled = true);
+    document
+      .querySelectorAll(".nome-gasto, .valor-gasto, .frequencia-gasto")
+      .forEach((input) => (input.disabled = true));
+    document
+      .querySelectorAll(".btn-remover-gasto")
+      .forEach((btn) => (btn.disabled = true));
     document.getElementById("duracao-cafezinho").disabled = true;
     btnAdicionarGasto.style.display = "none";
-    form.querySelector(".btn-simular-cafezinho[type='submit']").style.display = "none";
+    form.querySelector(".btn-simular-cafezinho[type='submit']").style.display =
+      "none";
 
-    graficoContainer.insertAdjacentHTML("afterend", `
+    graficoContainer.insertAdjacentHTML(
+      "afterend",
+      `
       <div class="div-btn-simular-cafezinho">
         <button id="btn-nova-simulacao" class="btn-simular-cafezinho">Nova Simulação</button>
       </div>
-    `);
+    `,
+    );
 
-    document.getElementById("btn-nova-simulacao").addEventListener("click", novaSimulacao);
+    document
+      .getElementById("btn-nova-simulacao")
+      .addEventListener("click", novaSimulacao);
   }
 
   function naoRemoverPrimeiroGasto() {
@@ -208,8 +239,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("duracao-cafezinho").disabled = false;
     graficoContainer.style.display = "none";
     btnAdicionarGasto.style.display = "inline-block";
-    form.querySelector(".btn-simular-cafezinho[type='submit']").style.display = "inline-block";
-  
+    form.querySelector(".btn-simular-cafezinho[type='submit']").style.display =
+      "inline-block";
+
     gastosLista.innerHTML = `
       <div class="gasto-item">
         <input type="text" placeholder="Gasto" class="input-cafezinho nome-gasto" required>
@@ -224,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     naoRemoverPrimeiroGasto();
-  
+
     if (grafico) grafico.destroy();
     const novaSimulacaoBtn = document.getElementById("btn-nova-simulacao");
     if (novaSimulacaoBtn) novaSimulacaoBtn.parentElement.remove();

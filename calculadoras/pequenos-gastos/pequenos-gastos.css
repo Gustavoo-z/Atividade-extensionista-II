@@ -1,5 +1,5 @@
-@import url('/style.css');
-@import url('/styles/style-nav.css');
+@import url("/style.css");
+@import url("/styles/style-nav.css");
 
 .container-pequenos {
   background-color: var(--cor-secundaria);
@@ -68,7 +68,8 @@ select.input-pequenos:disabled {
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='292.362' height='292.362'%3E%3Cpath fill='%23777' d='M287 69.14L277.523 59.666c-5.857-5.857-15.355-5.857-21.213 0L146.18 169.796 36.05 59.666c-5.857-5.857-15.355-5.857-21.213 0L4.36 69.14c-5.857 5.857-5.857 15.355 0 21.213l127.81 127.81c5.857 5.857 15.355 5.857 21.213 0l127.81-127.81c5.858-5.858 5.858-15.356.001-21.213z'/%3E%3C/svg%3E");
 }
 
-select.input-pequenos ,select.input-pequenos option {
+select.input-pequenos,
+select.input-pequenos option {
   color: #000;
 }
 
@@ -88,13 +89,14 @@ select.input-pequenos ,select.input-pequenos option {
 .btn-simular-pequenos:hover {
   background-color: #00b140;
 }
-  
-.input-pequenos:focus {
-    border-color: var(--cor-borda-hover);
-    outline: none;
-}  
 
-input:disabled, textarea:disabled {
+.input-pequenos:focus {
+  border-color: var(--cor-borda-hover);
+  outline: none;
+}
+
+input:disabled,
+textarea:disabled {
   color: #fff !important;
   background-color: #494949 !important;
 }
@@ -126,19 +128,19 @@ select:disabled {
   margin-top: 1rem;
   font-weight: 600;
 }
-  
+
 #grafico-pequenos {
-    max-width: 100%;
-    margin-top: 1rem;
+  max-width: 100%;
+  margin-top: 1rem;
 }
 
 #graficoContainer-pequenos {
   max-width: 500px;
-    margin: 30px auto 0;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 30px auto 0;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 942px) {
@@ -157,7 +159,7 @@ select:disabled {
 
 @media (max-width: 768px) {
   .container-pequenos {
-      margin: 40px 80px;
+    margin: 40px 80px;
   }
 }
 
@@ -195,8 +197,8 @@ select:disabled {
   }
 
   .btn-simular-pequenos {
-      width: 46%;
-    }
+    width: 46%;
+  }
 }
 
 @media (max-width: 350px) {
@@ -205,6 +207,6 @@ select:disabled {
   }
 
   .btn-simular-pequenos {
-      width: 65%;
-    }
+    width: 65%;
+  }
 }

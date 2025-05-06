@@ -19,13 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const parcelas = parseInt(parcelasInput.value);
     const taxa = parseFloat(taxaInput.value) / 100;
 
-    if (isNaN(valor) || isNaN(parcelas) || isNaN(taxa) || valor <= 0 || parcelas <= 0 || taxa < 0) {
+    if (
+      isNaN(valor) ||
+      isNaN(parcelas) ||
+      isNaN(taxa) ||
+      valor <= 0 ||
+      parcelas <= 0 ||
+      taxa < 0
+    ) {
       resultado.innerHTML = `<p style="color: red;">Por favor, preencha todos os campos corretamente.</p>`;
       resultadoContainer.style.display = "block";
       return;
     }
 
-    const parcelaValor = (valor * Math.pow(1 + taxa, parcelas) * taxa) / (Math.pow(1 + taxa, parcelas) - 1);
+    const parcelaValor =
+      (valor * Math.pow(1 + taxa, parcelas) * taxa) /
+      (Math.pow(1 + taxa, parcelas) - 1);
     const totalPago = parcelaValor * parcelas;
     const jurosTotal = totalPago - valor;
 
@@ -41,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>   
   </div>`;
 
-
     resultadoContainer.style.display = "block";
 
     if (grafico) grafico.destroy();
@@ -51,11 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
       type: "bar",
       data: {
         labels: ["Valor da Dívida", "Total Pago"],
-        datasets: [{
-          label: "Comparativo de Valores",
-          data: [valor, totalPago],
-          backgroundColor: ["#ccc", "#ff5252"],
-        }]
+        datasets: [
+          {
+            label: "Comparativo de Valores",
+            data: [valor, totalPago],
+            backgroundColor: ["#ccc", "#ff5252"],
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -63,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: ctx => formatarValor(ctx.raw)
-            }
-          }
+              label: (ctx) => formatarValor(ctx.raw),
+            },
+          },
         },
         scales: {
           y: {
@@ -74,14 +84,14 @@ document.addEventListener("DOMContentLoaded", function () {
             title: {
               display: true,
               text: "Valor (R$)",
-              color: "white"
-            }
+              color: "white",
+            },
           },
           x: {
-            ticks: { color: "white" }
-          }
-        }
-      }
+            ticks: { color: "white" },
+          },
+        },
+      },
     });
 
     valorInput.disabled = true;
@@ -92,25 +102,30 @@ document.addEventListener("DOMContentLoaded", function () {
     taxaInput.style.color = "white";
     btnSimular.style.display = "none";
 
-    resultado.insertAdjacentHTML("beforeend", `
+    resultado.insertAdjacentHTML(
+      "beforeend",
+      `
       <div class="div-btn-simular-peso">
         <button id="btn-nova-simulacao" class="btn-simular-peso">Nova Simulação</button>
       </div>
-    `);
+    `,
+    );
 
-    document.getElementById("btn-nova-simulacao").addEventListener("click", () => {
-      form.reset();
-      resultado.innerHTML = "";
-      resultadoContainer.style.display = "none";
-      btnSimular.style.display = "inline-block";
-      valorInput.disabled = false;
-      valorInput.style.color = "#000";
-      parcelasInput.disabled = false;
-      parcelasInput.style.color = "#000";
-      taxaInput.disabled = false;
-      taxaInput.style.color = "#000";
+    document
+      .getElementById("btn-nova-simulacao")
+      .addEventListener("click", () => {
+        form.reset();
+        resultado.innerHTML = "";
+        resultadoContainer.style.display = "none";
+        btnSimular.style.display = "inline-block";
+        valorInput.disabled = false;
+        valorInput.style.color = "#000";
+        parcelasInput.disabled = false;
+        parcelasInput.style.color = "#000";
+        taxaInput.disabled = false;
+        taxaInput.style.color = "#000";
 
-      if (grafico) grafico.destroy();
-    });
+        if (grafico) grafico.destroy();
+      });
   });
 });

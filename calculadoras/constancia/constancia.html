@@ -1,42 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Constância Vale Ouro</title>
-  <link rel="stylesheet" href="/calculadoras/constancia/constancia.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
-</head>
-<body>    
-  <section class="container-constancia">
-    <div class="nav-container">
-        <a href="/calculadoras/preco-cafezinho/preco-cafezinho.html" class="nav-arrow left"><img src="/img/arrow-left-solid.svg" alt="Calculadora anterior"></a>
-        <a href="/index.html" class="home-icon"><img src="/img/house-solid.svg" alt="Início"></a>
-        <a href="/calculadoras/caminho-sonho/caminho-sonho.html" class="nav-arrow right"><img src="/img/arrow-right-solid.svg" alt="Próxima calculadora"></a>
-      </div>  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Constância Vale Ouro</title>
+    <link rel="stylesheet" href="/calculadoras/constancia/constancia.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>"
+    />
+  </head>
+  <body>
+    <section class="container-constancia">
+      <div class="nav-container">
+        <a
+          href="/calculadoras/preco-cafezinho/preco-cafezinho.html"
+          class="nav-arrow left"
+          ><img src="/img/arrow-left-solid.svg" alt="Calculadora anterior"
+        /></a>
+        <a href="/index.html" class="home-icon"
+          ><img src="/img/house-solid.svg" alt="Início"
+        /></a>
+        <a
+          href="/calculadoras/caminho-sonho/caminho-sonho.html"
+          class="nav-arrow right"
+          ><img src="/img/arrow-right-solid.svg" alt="Próxima calculadora"
+        /></a>
+      </div>
       <h1 class="titulo-constancia">A Constância Vale Ouro</h1>
-      <p class="subtitulo-constancia">Simule quanto seu dinheiro pode render aplicando mensalmente com uma taxa de rendimento constante.</p>
-  
+      <p class="subtitulo-constancia">
+        Simule quanto seu dinheiro pode render aplicando mensalmente com uma
+        taxa de rendimento constante.
+      </p>
+
       <form class="form-constancia" id="form-constancia">
-        <label class="label-constancia" for="investimento-constancia">Investimento mensal (R$):</label>
-        <input class="input-constancia" type="number" step="any" id="investimento-constancia" required>
-  
-        <label class="label-constancia" for="duracao-constancia">Duração (em meses):</label>
-        <input class="input-constancia" type="number" step="any" id="duracao-constancia" required>
-  
-        <label class="label-constancia" for="taxa-constancia">Taxa de rendimento mensal (%):</label>
-        <input class="input-constancia" type="number" id="taxa-constancia" min="0" max="2" step="0.01" value="0.8" placeholder="Digite uma taxa entre 0% e 2%" title="Digite uma taxa entre 0% e 2%" required>
-  
-        <button id="btn-simular-constancia" class="btn-simular-constancia" type="submit">Simular</button>
+        <label class="label-constancia" for="investimento-constancia"
+          >Investimento mensal (R$):</label
+        >
+        <input
+          class="input-constancia"
+          type="number"
+          step="any"
+          id="investimento-constancia"
+          required
+        />
+
+        <label class="label-constancia" for="duracao-constancia"
+          >Duração (em meses):</label
+        >
+        <input
+          class="input-constancia"
+          type="number"
+          step="any"
+          id="duracao-constancia"
+          required
+        />
+
+        <label class="label-constancia" for="taxa-constancia"
+          >Taxa de rendimento mensal (%):</label
+        >
+        <input
+          class="input-constancia"
+          type="number"
+          id="taxa-constancia"
+          min="0"
+          max="2"
+          step="0.01"
+          value="0.8"
+          placeholder="Digite uma taxa entre 0% e 2%"
+          title="Digite uma taxa entre 0% e 2%"
+          required
+        />
+
+        <button
+          id="btn-simular-constancia"
+          class="btn-simular-constancia"
+          type="submit"
+        >
+          Simular
+        </button>
       </form>
-  
-      <div class="grafico-container-constancia" id="graficoContainer-constancia" style="display: none;">
+
+      <div
+        class="grafico-container-constancia"
+        id="graficoContainer-constancia"
+        style="display: none"
+      >
         <canvas class="grafico-constancia" id="graficoConstancia"></canvas>
-      </div>      
-  
-      <div style="display: none;" class="resultado-constancia" id="resultado-constancia"></div>
-  </section>
+      </div>
+
+      <div
+        style="display: none"
+        class="resultado-constancia"
+        id="resultado-constancia"
+      ></div>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="constancia.js"></script>
-</body>
+  </body>
 </html>

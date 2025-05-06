@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!form) return;
 
   const resultado = document.getElementById("resultado-constancia");
-  const graficoContainer = document.getElementById("graficoContainer-constancia");
+  const graficoContainer = document.getElementById(
+    "graficoContainer-constancia",
+  );
   const canvas = document.getElementById("graficoConstancia");
   const botaoSimular = document.getElementById("btn-simular-constancia");
 
@@ -24,7 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const meses = parseInt(mesesInput.value);
     const taxa = parseFloat(taxaInput.value) / 100;
 
-    if (isNaN(aporte) || isNaN(meses) || isNaN(taxa) || aporte <= 0 || meses <= 0 || taxa < 0) {
+    if (
+      isNaN(aporte) ||
+      isNaN(meses) ||
+      isNaN(taxa) ||
+      aporte <= 0 ||
+      meses <= 0 ||
+      taxa < 0
+    ) {
       resultado.innerHTML = `<p style="color: red;">Por favor, insira valores válidos.</p>`;
       graficoContainer.style.display = "none";
       return;
@@ -36,17 +45,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let valoresComRendimento = [];
     let valoresSemRendimento = [];
-    
+
     for (let i = 1; i <= meses; i++) {
-      const valorCom = taxa === 0
-        ? aporte * i
-        : aporte * ((Math.pow(1 + taxa, i) - 1) / taxa);
-        
+      const valorCom =
+        taxa === 0 ? aporte * i : aporte * ((Math.pow(1 + taxa, i) - 1) / taxa);
+
       const valorSem = aporte * i;
-    
+
       valoresComRendimento.push(valorCom);
       valoresSemRendimento.push(valorSem);
-    }    
+    }
 
     resultado.innerHTML = `
       <p class="total-investido-constancia"><strong>Total investido:</strong> <span>${formatarValor(totalSemRendimento)}</span></p>
@@ -68,27 +76,29 @@ document.addEventListener("DOMContentLoaded", function () {
         <button id="btn-nova-simulacao" class="btn-simular-constancia">Nova Simulação</button>
       </div>`;
 
-      aporteInput.disabled = true;
-      aporteInput.style.color = "#f0f0f0";
-      mesesInput.disabled = true;
-      mesesInput.style.color = "#f0f0f0";
-      taxaInput.disabled = true;
-      taxaInput.style.color = "#f0f0f0";
+    aporteInput.disabled = true;
+    aporteInput.style.color = "#f0f0f0";
+    mesesInput.disabled = true;
+    mesesInput.style.color = "#f0f0f0";
+    taxaInput.disabled = true;
+    taxaInput.style.color = "#f0f0f0";
 
-    document.getElementById("btn-nova-simulacao").addEventListener("click", () => {
-      form.reset();
-      resultado.innerHTML = "";
-      resultado.style.display = "none";
-      graficoContainer.style.display = "none";
-      botaoSimular.style.display = "block";
-      aporteInput.disabled = false;
-      aporteInput.style.color = "#000";
-      mesesInput.disabled = false;
-      mesesInput.style.color = "#000";
-      taxaInput.disabled = false;
-      taxaInput.style.color = "#000";
-      if (grafico) grafico.destroy();
-    });
+    document
+      .getElementById("btn-nova-simulacao")
+      .addEventListener("click", () => {
+        form.reset();
+        resultado.innerHTML = "";
+        resultado.style.display = "none";
+        graficoContainer.style.display = "none";
+        botaoSimular.style.display = "block";
+        aporteInput.disabled = false;
+        aporteInput.style.color = "#000";
+        mesesInput.disabled = false;
+        mesesInput.style.color = "#000";
+        taxaInput.disabled = false;
+        taxaInput.style.color = "#000";
+        if (grafico) grafico.destroy();
+      });
 
     graficoContainer.style.display = "block";
 

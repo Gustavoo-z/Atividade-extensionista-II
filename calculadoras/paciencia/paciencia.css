@@ -1,174 +1,176 @@
-@import url('/style.css');
-@import url('/styles/style-nav.css');
+@import url("/style.css");
+@import url("/styles/style-nav.css");
 
 .container-paciencia {
-    background-color: var(--cor-secundaria);
-    color: #fff;
-    padding: 2em;
-    padding-bottom: 0.5em;
-    border-radius: 12px;
-    max-width: 700px;
-    margin: 2em auto;
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  padding: 2em;
+  padding-bottom: 0.5em;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2em auto;
 }
 
 .form-paciencia {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .titulo-paciencia {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 0.5em;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.5em;
 }
 
 .subtitulo-paciencia {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 1em;
-    color: var(--cor-texto-secundario);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: var(--cor-texto-secundario);
 }
 
 .label-paciencia {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-    margin-bottom: 0.5em;
-    text-align: center;
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 
 .input-paciencia {
-    text-align: center;
-    width: 65%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    margin-bottom: 1em;
+  text-align: center;
+  width: 65%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1em;
 }
 
 #qtd-parcelas::placeholder {
-    color: #555;
+  color: #555;
 }
 
 .btn-simular-paciencia {
-    margin-top: 1em;
-    width: 30%;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #00c853;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
+  margin-top: 1em;
+  width: 30%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #00c853;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .btn-simular-paciencia:hover {
-    background-color: #00b140;
+  background-color: #00b140;
 }
 
 .div-btn-simular-paciencia {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-input:disabled, select:disabled, textarea:disabled {
+input:disabled,
+select:disabled,
+textarea:disabled {
   color: #fff !important;
   background-color: #494949 !important;
 }
-  
+
 .resultado-paciencia {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .resultado-paciencia p {
-    align-items: center;
-    text-align: center;
+  align-items: center;
+  text-align: center;
 }
 
 .resultado-paciencia span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .total-investido-paciencia span {
-    font-weight: bold;
-    color: var(--cor-texto-secundario);
+  font-weight: bold;
+  color: var(--cor-texto-secundario);
 }
 
 .total-com-rendimento-paciencia span {
-    font-weight: bold;
-    color: #00c853;
+  font-weight: bold;
+  color: #00c853;
 }
 
 .conclusao-paciencia {
-    margin-top: 1rem;
-    color: var(--cor-texto);
+  margin-top: 1rem;
+  color: var(--cor-texto);
 }
-  
-  #grafico-paciencia {
-    max-width: 100%;
-    margin-top: 2rem;
+
+#grafico-paciencia {
+  max-width: 100%;
+  margin-top: 2rem;
 }
 
 @media (max-width: 942px) {
-    .container-paciencia {
-      margin: 40px 80px;
-    }
+  .container-paciencia {
+    margin: 40px 80px;
   }
-  
-  @media (max-width: 768px) {
-    .container-paciencia {
-        margin: 40px 80px;
-    }
+}
+
+@media (max-width: 768px) {
+  .container-paciencia {
+    margin: 40px 80px;
   }
-  
-  @media (max-width: 680px) {
-    .container-paciencia {
-      margin: 40px 40px;
-    }
+}
+
+@media (max-width: 680px) {
+  .container-paciencia {
+    margin: 40px 40px;
   }
-  
-  @media (max-width: 600px) {
-    .container-paciencia {
-      margin: 40px 35px;
-    }
-  
-    .btn-simular-paciencia {
-      width: 40%;
-    }
+}
+
+@media (max-width: 600px) {
+  .container-paciencia {
+    margin: 40px 35px;
   }
-  
-  @media (max-width: 514px) {
-    .container-paciencia {
-      margin: 30px 20px;
-    }
+
+  .btn-simular-paciencia {
+    width: 40%;
   }
-  
-  @media (max-width: 484px) {
-    .container-paciencia {
-      margin: 18px 13px;
-    }
+}
+
+@media (max-width: 514px) {
+  .container-paciencia {
+    margin: 30px 20px;
   }
-  
-  @media (max-width: 400px) {
-    .container-paciencia {
-      margin: 15px 10px;
-    }
-  
-    .btn-simular-paciencia {
-        width: 46%;
-      }
+}
+
+@media (max-width: 484px) {
+  .container-paciencia {
+    margin: 18px 13px;
   }
-  
-  @media (max-width: 350px) {
-    .container-paciencia {
-      margin: 12px 8px;
-    }
-  
-    .btn-simular-paciencia {
-        width: 65%;
-      }
+}
+
+@media (max-width: 400px) {
+  .container-paciencia {
+    margin: 15px 10px;
   }
+
+  .btn-simular-paciencia {
+    width: 46%;
+  }
+}
+
+@media (max-width: 350px) {
+  .container-paciencia {
+    margin: 12px 8px;
+  }
+
+  .btn-simular-paciencia {
+    width: 65%;
+  }
+}
