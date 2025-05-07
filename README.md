@@ -2,6 +2,8 @@
 
 Este projeto contém **6 calculadoras interativas** desenvolvidas com foco em **educação financeira para adolescentes**, incentivando o planejamento e a conscientização sobre hábitos de consumo.
 
+> 🏫 Projeto desenvolvido como parte da disciplina **Atividade Extensionista II**, para fins educacionais e de extensão universitária.
+
 ## 📦 Funcionalidades
 
 - Simuladores com gráfico para facilitar o entendimento visual
@@ -16,9 +18,11 @@ Você pode utilizar o projeto de **3 formas diferentes**:
 
 ### 1. 📁 Abrindo localmente via navegador
 
+> ⚠️ Certifique-se de que todos os arquivos (HTML, CSS, JS) estejam na mesma pasta.
+
 - Faça o download do repositório
-- Abra o arquivo `index.html` com um navegador (ex: clique duas vezes ou botão direito > "Abrir com")
-- Pronto! O projeto irá funcionar normalmente
+- Clique com o botão direito no arquivo `index.html` > **Abrir com > Navegador**
+- ⚠️ Caso os estilos não carreguem corretamente, utilize uma das opções abaixo
 
 ### 2. 🌐 Acessando o deploy na Vercel
 
@@ -28,13 +32,9 @@ Você pode utilizar o projeto de **3 formas diferentes**:
 
 - Instale a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 - Clique com o botão direito no `index.html` > **"Open with Live Server"**
-- O projeto será aberto automaticamente no navegador
+- O projeto será aberto automaticamente no navegador, com suporte total aos arquivos locais
 
 ---
-
-## 👨‍🏫 Sobre o Projeto
-
-Este projeto foi idealizado como ferramenta de apoio para **ensino de educação financeira** no contexto escolar e universitário. Ele visa demonstrar de forma prática os impactos de hábitos financeiros ao longo do tempo, promovendo o raciocínio sobre consumo, investimento e planejamento.
 
 ## 🧠 Calculadoras Incluídas
 
